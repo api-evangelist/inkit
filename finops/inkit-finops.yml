@@ -1,0 +1,90 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+provider: Inkit
+providerId: inkit
+created: '2026-06-12'
+modified: '2026-06-12'
+
+billingModel: hybrid
+description: >
+  Inkit uses a hybrid billing model combining per-seat subscription pricing for lower tiers
+  and usage-based metered billing for API automations and workflow invocations on the Enterprise
+  plan. Seat-based tiers (Free, Personal, Standard) are billed monthly or annually. Enterprise
+  customers are billed based on actual API and workflow consumption.
+
+focusColumns:
+  - ChargeType
+  - ServiceName
+  - ResourceType
+  - UsageQuantity
+  - UsageUnit
+  - BilledCost
+  - BillingCurrency
+  - BillingPeriodStart
+  - BillingPeriodEnd
+  - ProviderName
+  - ServiceCategory
+
+meters:
+  - name: api_requests
+    unit: request
+    description: Per-API-call charge for REST API invocations on the Enterprise plan
+    chargeType: UsageBased
+    serviceCategory: Developer Tools
+    resourceType: API Call
+
+  - name: workflow_invocations
+    unit: invocation
+    description: Per-workflow-launch charge for automated document routing and processing
+    chargeType: UsageBased
+    serviceCategory: Workflow Automation
+    resourceType: Workflow Invocation
+
+  - name: document_generation
+    unit: document
+    description: Per-document charge for rendering templates into PDF output
+    chargeType: UsageBased
+    serviceCategory: Document Generation
+    resourceType: Generated Document
+
+  - name: digital_signatures
+    unit: signature_request
+    description: Digital signature requests; unlimited on paid plans
+    chargeType: Included
+    serviceCategory: Document Management
+    resourceType: Signature Request
+
+  - name: storage
+    unit: GB-month
+    description: Cloud storage consumed by generated and uploaded documents
+    chargeType: Included
+    serviceCategory: Storage
+    resourceType: Document Storage
+
+  - name: user_seat
+    unit: seat-month
+    description: Per-user-per-month seat license for Personal and Standard plans
+    chargeType: Subscription
+    serviceCategory: Platform Access
+    resourceType: User Seat
+
+principles:
+  Visibility:
+    description: >
+      Enterprise customers should monitor API request volume, workflow invocation counts,
+      and document generation throughput via dashboard analytics. Audit logs provide
+      immutable records of all document operations for cost attribution and compliance.
+    recommendations:
+      - Tag API calls by team or application to allocate costs across business units
+      - Use batch workflow endpoints to reduce per-invocation charges
+      - Monitor the 300 req/min rate limit to avoid throttled retries that inflate usage
+
+  Optimization:
+    description: >
+      Optimize Inkit spend by selecting the appropriate plan tier, batching document
+      generation requests, and leveraging template reuse to minimize per-document costs.
+    recommendations:
+      - Use /invoke/batch endpoint for bulk document generation to reduce overhead
+      - Annual billing on Personal and Standard plans reduces per-seat cost by ~25%
+      - Evaluate actual API usage before committing to Enterprise to right-size the contract
+      - Reuse templates across document types to minimize template management overhead

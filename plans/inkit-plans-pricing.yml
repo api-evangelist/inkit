@@ -1,0 +1,167 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+provider: Inkit
+providerId: inkit
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+
+type: freemium
+
+plans:
+  - name: Free
+    type: free
+    description: >
+      Entry-level plan suitable for individual users exploring Inkit. Includes basic document
+      signing and storage. API automations not included.
+    price:
+      amount: 0
+      currency: USD
+      period: monthly
+    quotas:
+      - metric: signature_requests
+        limit: 3
+        timeFrame: monthly
+        type: quota
+      - metric: templates
+        limit: 3
+        type: boolean
+      - metric: users
+        limit: 1
+        type: quota
+      - metric: storage_gb
+        limit: 10
+        type: quota
+    features:
+      - Folder support
+      - Magic Links / Public Links
+      - Cloud storage integrations
+      - Digital signatures
+    apiAccess: false
+
+  - name: Personal
+    type: paid
+    description: >
+      Plan for individual professionals needing unlimited signatures and expanded storage.
+      Does not include API access or document generation workflows.
+    price:
+      amount: 15
+      currency: USD
+      period: monthly
+      billingOptions:
+        - period: annual
+          amount: 15
+        - period: monthly
+          amount: 20
+    trial:
+      days: 30
+    quotas:
+      - metric: signature_requests
+        limit: -1
+        type: quota
+        note: Unlimited
+      - metric: templates
+        limit: 3
+        type: quota
+      - metric: users
+        limit: 1
+        type: quota
+      - metric: storage_gb
+        limit: 100
+        type: quota
+    features:
+      - Unlimited digital signatures
+      - Folder support
+      - Magic Links / Public Links
+      - Cloud storage integrations
+    apiAccess: false
+
+  - name: Standard
+    type: paid
+    description: >
+      Team-oriented plan that adds DocGen (document generation), CRM integrations, and
+      no-code workflow automations. Suitable for teams needing automated document creation
+      without custom API integrations.
+    price:
+      amount: 25
+      currency: USD
+      period: monthly
+      billingOptions:
+        - period: annual
+          amount: 25
+        - period: monthly
+          amount: 30
+    trial:
+      days: 30
+    quotas:
+      - metric: signature_requests
+        limit: -1
+        type: quota
+        note: Unlimited
+      - metric: templates
+        limit: -1
+        type: quota
+        note: Unlimited
+      - metric: users
+        limit: -1
+        type: quota
+        note: Unlimited
+      - metric: storage_gb
+        limit: 1000
+        type: quota
+        note: 1TB per user
+    features:
+      - DocGen document generation
+      - CRM integrations
+      - No-code workflow automations
+      - Unlimited templates and users
+      - All Personal plan features
+    apiAccess: false
+
+  - name: Enterprise
+    type: enterprise
+    description: >
+      Enterprise plan with full API access, custom integrations, advanced compliance controls,
+      and usage-based billing for API automations and workflows. Designed for organizations
+      requiring HIPAA, FedRAMP, SOC 2, or IL4/IL5 compliance. Pricing is custom and requires
+      contacting sales.
+    price:
+      amount: null
+      currency: USD
+      note: Custom pricing, contact sales
+    quotas:
+      - metric: api_requests
+        limit: -1
+        type: metered
+        note: Usage-based billing
+      - metric: workflow_invocations
+        limit: -1
+        type: metered
+        note: Usage-based billing
+      - metric: signature_requests
+        limit: -1
+        type: quota
+        note: Unlimited
+      - metric: templates
+        limit: -1
+        type: quota
+        note: Unlimited
+      - metric: users
+        limit: -1
+        type: quota
+        note: Unlimited
+      - metric: storage_gb
+        limit: 1000
+        type: quota
+        note: 1TB per user, expandable
+    features:
+      - Full REST API access (X-Inkit-API-Token)
+      - API automations billed by usage
+      - Custom integrations
+      - Advanced compliance controls
+      - HIPAA, SOC 2, FedRAMP, IL4/IL5 compliance
+      - Immutable audit logs
+      - Role-based access controls
+      - End-to-end encryption
+      - All Standard plan features
+    apiAccess: true

@@ -1,0 +1,89 @@
+aid: inkit
+name: Inkit
+description: >
+  Inkit is a Secure Document Generation (SDG) platform that enables organizations to generate,
+  sign, store, and distribute documents in total privacy. The platform provides a REST API for
+  rendering HTML templates into PDFs, automating document workflows, and managing digital signatures
+  at scale. Inkit supports enterprise-grade security and compliance including HIPAA, SOC 2, FedRAMP,
+  and IL4/IL5 certifications, making it suitable for regulated industries such as financial services,
+  utilities, and government. The API allows developers to generate documents from templates, invoke
+  workflow automation, manage mail piece delivery, and integrate document operations into their own
+  applications using SDKs available for Python, Node.js, Go, and Java.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Document Generation
+  - PDF
+  - Templates
+  - Digital Signatures
+  - Workflows
+  - Document Management
+  - Secure Documents
+  - Compliance
+  - HIPAA
+  - Enterprise
+url: https://raw.githubusercontent.com/api-evangelist/inkit/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+
+apis:
+  - aid: inkit:inkit-document-generation-api
+    name: Inkit Document Generation API
+    description: >
+      The Inkit REST API enables developers to generate PDF documents from templates, manage
+      document storage and retrieval, launch document workflows and batches, send documents
+      via mail, and manage digital signature requests. Authentication uses the X-Inkit-API-Token
+      header and the API enforces a rate limit of 300 requests per minute.
+    humanURL: https://docs.inkit.com/docs/using-the-api
+    baseURL: https://api.inkit.com/v1
+    tags:
+      - Document Generation
+      - PDF
+      - Templates
+      - Workflows
+      - Digital Signatures
+      - Mail Delivery
+    properties:
+      - type: Documentation
+        url: https://docs.inkit.com/docs/using-the-api
+      - type: APIReference
+        url: https://docs.inkit.com/reference/post_v1-generate-1
+      - type: OpenAPI
+        url: https://docs.inkit.com/llms.txt
+      - type: PythonSDK
+        url: https://github.com/inkit/inkit-python
+      - type: NodejsSDK
+        url: https://github.com/inkit/inkit-nodejs
+      - type: GoSDK
+        url: https://github.com/inkit/inkit-go
+      - type: JavaSDK
+        url: https://github.com/inkit/inkit-java
+
+common:
+  - type: Website
+    url: https://www.inkit.com
+  - type: Documentation
+    url: https://docs.inkit.com/docs/welcome-to-inkit
+  - type: GitHubOrganization
+    url: https://github.com/inkit
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/inkit
+  - type: X
+    url: https://x.com/inkittweet
+  - type: Blog
+    url: https://www.inkit.com/blog
+  - type: Pricing
+    url: https://www.inkit.com/pricing
+  - type: StatusPage
+    url: https://status.inkit.com/
+  - type: Plans
+    url: plans/inkit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/inkit-rate-limits.yml
+  - type: FinOps
+    url: finops/inkit-finops.yml
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

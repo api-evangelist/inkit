@@ -1,0 +1,25 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Inkit
+providerId: inkit
+created: '2026-06-12'
+modified: '2026-06-12'
+
+retryAfter: true
+throttled:
+  httpStatusCode: 429
+
+limits:
+  - scope: account
+    metric: requests
+    limit: 300
+    timeFrame: minute
+    description: >
+      No more than 300 API requests may be made per minute per account. Exceeding this
+      limit results in a 429 Too Many Requests response.
+
+notes: >
+  Inkit enforces a hard rate limit of 300 requests per minute across all API endpoints.
+  The API key (X-Inkit-API-Token header) is used to identify and throttle requests on
+  a per-account basis. API access is restricted to Enterprise plan customers; usage-based
+  billing applies to workflow invocations and document generation calls.
