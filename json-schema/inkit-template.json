@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/inkit/json-schema/inkit-template.json",
+  "title": "Inkit Template",
+  "description": "A document template in the Inkit Document Generation platform",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique template identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Template display name"
+    },
+    "source": {
+      "type": "string",
+      "description": "Template source format",
+      "enum": ["html", "pdf", "docx"]
+    },
+    "file": {
+      "type": "string",
+      "description": "Base64-encoded template file content"
+    },
+    "data": {
+      "type": "object",
+      "description": "Template dimension and format settings",
+      "properties": {
+        "width": {
+          "type": "number",
+          "description": "Page width"
+        },
+        "height": {
+          "type": "number",
+          "description": "Page height"
+        },
+        "unit": {
+          "type": "string",
+          "description": "Unit for dimensions",
+          "enum": ["px", "mm", "in", "cm"]
+        }
+      }
+    },
+    "destinations": {
+      "type": "array",
+      "description": "Default delivery destinations for renders from this template",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Destination name"
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Template creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Template last update timestamp"
+    }
+  },
+  "required": ["id", "name", "source"]
+}

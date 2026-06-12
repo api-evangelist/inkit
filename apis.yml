@@ -51,6 +51,14 @@ apis:
         url: https://docs.inkit.com/reference/post_v1-generate-1
       - type: OpenAPI
         url: https://docs.inkit.com/llms.txt
+      - type: OpenAPI
+        url: openapi/inkit-document-generation-api-openapi.yml
+      - type: JSONSchema
+        url: json-schema/inkit-render.json
+      - type: JSONSchema
+        url: json-schema/inkit-template.json
+      - type: JSONSchema
+        url: json-schema/inkit-document.json
       - type: PythonSDK
         url: https://github.com/inkit/inkit-python
       - type: NodejsSDK
@@ -67,6 +75,12 @@ common:
     url: https://docs.inkit.com/docs/welcome-to-inkit
   - type: GitHubOrganization
     url: https://github.com/inkit
+  - type: Vocabulary
+    url: vocabulary/inkit-vocabulary.yml
+  - type: JSONLDContext
+    url: json-ld/inkit-context.jsonld
+  - type: Blog
+    url: blogs/blogs.json
   - type: LinkedIn
     url: https://www.linkedin.com/company/inkit
   - type: X

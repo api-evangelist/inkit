@@ -1,0 +1,771 @@
+openapi: 3.0.3
+info:
+  title: Inkit Document Generation API
+  description: >
+    The Inkit REST API enables developers to generate PDF documents from HTML templates,
+    manage document storage and retrieval, launch document workflows and batches, and
+    manage digital signature requests. Authentication uses the X-Inkit-API-Token header.
+    The API enforces a rate limit of 300 requests per minute.
+  version: 1.0.0
+  contact:
+    name: Inkit Support
+    url: https://docs.inkit.com/docs/welcome-to-inkit
+  license:
+    name: Proprietary
+    url: https://www.inkit.com
+
+servers:
+  - url: https://api.inkit.com/v1
+    description: Inkit Production API
+
+security:
+  - ApiKeyAuth: []
+
+tags:
+  - name: Folders
+    description: Manage document folders
+  - name: Templates
+    description: Manage document templates
+  - name: Renders
+    description: Generate and retrieve document renders (PDFs)
+  - name: Batches
+    description: Batch document render operations
+  - name: Documents
+    description: Manage stored documents
+
+paths:
+
+  /folder:
+    get:
+      operationId: listFolders
+      summary: List Folders
+      description: Returns a list of all folders available in the account.
+      tags:
+        - Folders
+      parameters:
+        - name: sort
+          in: query
+          description: Sort order for results
+          required: false
+          schema:
+            type: string
+        - name: data_description
+          in: query
+          description: Filter folders by data description
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of folders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /template:
+    post:
+      operationId: createTemplate
+      summary: Create Template
+      description: Creates a new document template.
+      tags:
+        - Templates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateCreateRequest'
+      responses:
+        '200':
+          description: Template created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    get:
+      operationId: listTemplates
+      summary: List Templates
+      description: Returns a list of document templates.
+      tags:
+        - Templates
+      parameters:
+        - name: search
+          in: query
+          description: Search term to filter templates
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Sort order for results
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page number for pagination
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+        - name: source
+          in: query
+          description: Filter by template source type
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of templates
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /template/{id}:
+    get:
+      operationId: getTemplate
+      summary: Get Template
+      description: Returns a single template by ID.
+      tags:
+        - Templates
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: Template details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /render:
+    post:
+      operationId: createRender
+      summary: Create Render
+      description: Generates a PDF document from a template using provided merge parameters.
+      tags:
+        - Renders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RenderCreateRequest'
+      responses:
+        '200':
+          description: Render created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Render'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    get:
+      operationId: listRenders
+      summary: List Renders
+      description: Returns a list of document renders.
+      tags:
+        - Renders
+      parameters:
+        - name: sort
+          in: query
+          description: Sort order for results
+          required: false
+          schema:
+            type: string
+        - name: page_size
+          in: query
+          description: Number of results per page
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+        - name: page
+          in: query
+          description: Page number for pagination
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+        - name: destination_name
+          in: query
+          description: Filter by destination name
+          required: false
+          schema:
+            type: string
+        - name: destination_status
+          in: query
+          description: Filter by destination status
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of renders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /render/{id}:
+    get:
+      operationId: getRender
+      summary: Get Render
+      description: Returns a single render by ID.
+      tags:
+        - Renders
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: Render details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Render'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /render/{id}/pdf:
+    get:
+      operationId: getRenderPdf
+      summary: Download Render PDF
+      description: Downloads the generated PDF file for a render.
+      tags:
+        - Renders
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: PDF file content
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /batch:
+    post:
+      operationId: createBatch
+      summary: Create Batch
+      description: Creates a batch of document renders from a single template.
+      tags:
+        - Batches
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCreateRequest'
+      responses:
+        '200':
+          description: Batch created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Batch'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    get:
+      operationId: listBatches
+      summary: List Batches
+      description: Returns a list of batch render jobs.
+      tags:
+        - Batches
+      parameters:
+        - name: destination_name
+          in: query
+          description: Filter by destination name
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of batches
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /batch/{id}:
+    get:
+      operationId: getBatch
+      summary: Get Batch
+      description: Returns a single batch by ID.
+      tags:
+        - Batches
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: Batch details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Batch'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /document:
+    get:
+      operationId: listDocuments
+      summary: List Documents
+      description: Returns a list of stored documents.
+      tags:
+        - Documents
+      parameters:
+        - name: search
+          in: query
+          description: Search term to filter documents
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of documents
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /document/{id}:
+    get:
+      operationId: getDocument
+      summary: Get Document
+      description: Returns a single document by ID.
+      tags:
+        - Documents
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: Document details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    delete:
+      operationId: deleteDocument
+      summary: Delete Document
+      description: Deletes a document by ID.
+      tags:
+        - Documents
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '204':
+          description: Document deleted successfully
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+  /download/{id}:
+    get:
+      operationId: downloadDocument
+      summary: Download Document
+      description: Downloads a document as a PDF file.
+      tags:
+        - Documents
+      parameters:
+        - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: PDF file content
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Inkit-API-Token
+      description: API token for Inkit authentication
+
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Unique identifier of the resource
+      required: true
+      schema:
+        type: string
+
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
+
+    Destination:
+      type: object
+      description: Document delivery destination configuration
+      properties:
+        name:
+          type: string
+          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
+        status:
+          type: string
+          description: Current delivery status
+        data:
+          type: object
+          description: Destination-specific configuration data
+          additionalProperties: true
+
+    TemplateData:
+      type: object
+      description: Template dimensions and format settings
+      properties:
+        width:
+          type: number
+          description: Page width
+        height:
+          type: number
+          description: Page height
+        unit:
+          type: string
+          description: Unit for dimensions (e.g. px, mm, in)
+
+    Folder:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique folder identifier
+        name:
+          type: string
+          description: Folder name
+        data_description:
+          type: string
+          description: Description of folder data
+        created_at:
+          type: string
+          format: date-time
+          description: Folder creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Folder last update timestamp
+
+    FolderListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Folder'
+
+    TemplateCreateRequest:
+      type: object
+      required:
+        - name
+        - source
+      properties:
+        name:
+          type: string
+          description: Template name
+        source:
+          type: string
+          description: Template source type (e.g. html, pdf, docx)
+        file:
+          type: string
+          description: Base64-encoded template file content
+        data:
+          $ref: '#/components/schemas/TemplateData'
+        destinations:
+          type: array
+          description: List of delivery destinations
+          items:
+            $ref: '#/components/schemas/Destination'
+
+    Template:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique template identifier
+        name:
+          type: string
+          description: Template name
+        source:
+          type: string
+          description: Template source type
+        data:
+          $ref: '#/components/schemas/TemplateData'
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+        created_at:
+          type: string
+          format: date-time
+          description: Template creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Template last update timestamp
+
+    TemplateListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Template'
+
+    RenderCreateRequest:
+      type: object
+      required:
+        - template_id
+      properties:
+        template_id:
+          type: string
+          description: ID of the template to render
+        merge_parameters:
+          type: object
+          description: Key-value pairs to merge into the template
+          additionalProperties: true
+        destinations:
+          type: array
+          description: List of delivery destinations for the rendered document
+          items:
+            $ref: '#/components/schemas/Destination'
+
+    Render:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique render identifier
+        template_id:
+          type: string
+          description: ID of the source template
+        merge_parameters:
+          type: object
+          additionalProperties: true
+          description: Merge parameters used for this render
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+        status:
+          type: string
+          description: Current render status
+        created_at:
+          type: string
+          format: date-time
+          description: Render creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Render last update timestamp
+
+    RenderListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Render'
+
+    BatchRenderItem:
+      type: object
+      properties:
+        merge_parameters:
+          type: object
+          description: Merge parameters for this individual render in the batch
+          additionalProperties: true
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+
+    BatchCreateRequest:
+      type: object
+      required:
+        - template_id
+        - renders
+      properties:
+        template_id:
+          type: string
+          description: ID of the template to use for all renders in the batch
+        renders:
+          type: array
+          description: List of render items with individual merge parameters and destinations
+          items:
+            $ref: '#/components/schemas/BatchRenderItem'
+
+    Batch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique batch identifier
+        template_id:
+          type: string
+          description: ID of the source template
+        renders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Render'
+        status:
+          type: string
+          description: Overall batch status
+        created_at:
+          type: string
+          format: date-time
+          description: Batch creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Batch last update timestamp
+
+    BatchListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Batch'
+
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique document identifier
+        name:
+          type: string
+          description: Document name
+        render_id:
+          type: string
+          description: ID of the render that generated this document
+        template_id:
+          type: string
+          description: ID of the source template
+        status:
+          type: string
+          description: Document status
+        created_at:
+          type: string
+          format: date-time
+          description: Document creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Document last update timestamp
+
+    DocumentListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'

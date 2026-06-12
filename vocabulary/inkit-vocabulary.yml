@@ -1,0 +1,95 @@
+vocabulary:
+  - term: render
+    definition: >
+      A generated PDF document produced by merging data (merge_parameters) into a
+      document template. A render is the core output unit of the Inkit platform.
+    type: resource
+    related:
+      - template
+      - batch
+      - document
+
+  - term: template
+    definition: >
+      A reusable document blueprint in HTML, PDF, or DOCX format containing merge
+      fields that are replaced with actual data at render time.
+    type: resource
+    related:
+      - render
+      - merge_parameters
+
+  - term: merge_parameters
+    definition: >
+      A key-value map of data values that are injected into a template's merge
+      fields during document generation. Values can be strings, numbers, or nested objects.
+    type: concept
+    related:
+      - template
+      - render
+
+  - term: batch
+    definition: >
+      A collection of multiple render jobs submitted together in a single API call,
+      each with individual merge parameters and destinations, all sharing the same template.
+    type: resource
+    related:
+      - render
+      - template
+
+  - term: document
+    definition: >
+      A stored document artifact in the Inkit platform, typically the result of a
+      completed render. Documents can be retrieved, downloaded as PDF, or deleted.
+    type: resource
+    related:
+      - render
+      - download
+
+  - term: destination
+    definition: >
+      A delivery target for a rendered document. Supported destinations include
+      cloud storage services (Amazon S3, Box, Dropbox, Google Drive) and physical
+      mail delivery via Sepire.
+    type: concept
+    values:
+      - s3
+      - box
+      - dropbox
+      - google_drive
+      - sepire
+    related:
+      - render
+      - batch
+
+  - term: folder
+    definition: >
+      An organizational container for grouping templates within the Inkit platform.
+    type: resource
+    related:
+      - template
+
+  - term: X-Inkit-API-Token
+    definition: >
+      The HTTP header used to authenticate requests to the Inkit API. The value must
+      be a valid API token issued from the Inkit dashboard.
+    type: authentication
+    related:
+      - api_token
+
+  - term: SDG
+    definition: >
+      Secure Document Generation — Inkit's brand name for its privacy-first approach
+      to document creation, storage, and distribution, meeting compliance requirements
+      such as HIPAA, SOC 2, FedRAMP, and IL4/IL5.
+    type: concept
+    related:
+      - compliance
+      - HIPAA
+      - FedRAMP
+
+  - term: rate_limit
+    definition: >
+      Inkit enforces a maximum of 300 API requests per minute per API token.
+      Exceeding this limit results in HTTP 429 Too Many Requests responses.
+    type: constraint
+    value: 300 requests per minute

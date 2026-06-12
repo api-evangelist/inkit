@@ -1,0 +1,39 @@
+{
+  "template_id": "tmpl_abc123def456",
+  "renders": [
+    {
+      "merge_parameters": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "account_number": "ACC-9876543",
+        "balance": "1250.00"
+      },
+      "destinations": [
+        {
+          "name": "s3",
+          "data": {
+            "bucket": "my-documents-bucket",
+            "key": "statements/jane-doe-2026-06.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "merge_parameters": {
+        "first_name": "John",
+        "last_name": "Smith",
+        "account_number": "ACC-1234567",
+        "balance": "3400.75"
+      },
+      "destinations": [
+        {
+          "name": "s3",
+          "data": {
+            "bucket": "my-documents-bucket",
+            "key": "statements/john-smith-2026-06.pdf"
+          }
+        }
+      ]
+    }
+  ]
+}

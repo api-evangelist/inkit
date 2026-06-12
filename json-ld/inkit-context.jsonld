@@ -1,0 +1,78 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "inkit": "https://www.inkit.com/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Render": "inkit:Render",
+    "Template": "inkit:Template",
+    "Document": "inkit:Document",
+    "Batch": "inkit:Batch",
+    "Folder": "inkit:Folder",
+    "Destination": "inkit:Destination",
+
+    "id": "@id",
+    "template_id": {
+      "@id": "inkit:templateId",
+      "@type": "@id"
+    },
+    "render_id": {
+      "@id": "inkit:renderId",
+      "@type": "@id"
+    },
+    "merge_parameters": {
+      "@id": "inkit:mergeParameters",
+      "@type": "@json"
+    },
+    "destinations": {
+      "@id": "inkit:destinations",
+      "@container": "@set"
+    },
+    "destination_name": {
+      "@id": "inkit:destinationName"
+    },
+    "destination_status": {
+      "@id": "inkit:destinationStatus"
+    },
+    "status": {
+      "@id": "inkit:status"
+    },
+    "source": {
+      "@id": "inkit:templateSource"
+    },
+    "name": "schema:name",
+    "file": {
+      "@id": "inkit:file"
+    },
+    "renders": {
+      "@id": "inkit:renders",
+      "@container": "@set"
+    },
+    "items": {
+      "@id": "inkit:items",
+      "@container": "@set"
+    },
+    "page": {
+      "@id": "inkit:page",
+      "@type": "xsd:integer"
+    },
+    "page_size": {
+      "@id": "inkit:pageSize",
+      "@type": "xsd:integer"
+    },
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updated_at": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "data_description": {
+      "@id": "schema:description"
+    },
+    "search": {
+      "@id": "schema:query"
+    }
+  }
+}
