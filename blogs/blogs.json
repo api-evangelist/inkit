@@ -1,21 +1,14 @@
 {
-  "blog": {
-    "url": "https://www.inkit.com/blog",
-    "rss": null,
-    "note": "No RSS/Atom feed discovered; blog is rendered as HTML only.",
-    "last_checked": "2026-06-12"
-  },
-  "posts": [],
   "repo": "inkit",
   "feeds": [
     {
-      "source": "https://x.com/inkittweet",
-      "feed_url": "https://x.com/inkittweet",
-      "title": "",
+      "source": "https://www.inkit.com/blog",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
+      "method": "agent-scrape"
     }
   ],
+  "fetched": "2026-06-27T12:47:45Z",
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "agent_pulled": "2026-06-27"
 }
