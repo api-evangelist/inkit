@@ -69,6 +69,12 @@ apis:
         url: https://github.com/inkit/inkit-java
 
 common:
+  - type: TrustCenter
+    url: security/inkit-trust-center.yml
+  - type: DomainSecurity
+    url: security/inkit-domain-security.yml
+  - type: Authentication
+    url: authentication/inkit-authentication.yml
   - type: Website
     url: https://www.inkit.com
   - type: Documentation
