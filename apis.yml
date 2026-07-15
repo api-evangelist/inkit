@@ -69,6 +69,8 @@ apis:
         url: https://github.com/inkit/inkit-java
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/inkit-agentic-access.yml
   - type: TrustCenter
     url: security/inkit-trust-center.yml
   - type: DomainSecurity
