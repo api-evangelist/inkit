@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: Inkit Document Generation Batches Folders API
+  description: 'The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Inkit Support
+    url: https://docs.inkit.com/docs/welcome-to-inkit
+  license:
+    name: Proprietary
+    url: https://www.inkit.com
+servers:
+- url: https://api.inkit.com/v1
+  description: Inkit Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Folders
+  description: Manage document folders
+paths:
+  /folder:
+    get:
+      operationId: listFolders
+      summary: List Folders
+      description: Returns a list of all folders available in the account.
+      tags:
+      - Folders
+      parameters:
+      - name: sort
+        in: query
+        description: Sort order for results
+        required: false
+        schema:
+          type: string
+      - name: data_description
+        in: query
+        description: Filter folders by data description
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of folders
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FolderListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  responses:
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Folder:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique folder identifier
+        name:
+          type: string
+          description: Folder name
+        data_description:
+          type: string
+          description: Description of folder data
+        created_at:
+          type: string
+          format: date-time
+          description: Folder creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Folder last update timestamp
+    FolderListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Folder'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Inkit-API-Token
+      description: API token for Inkit authentication

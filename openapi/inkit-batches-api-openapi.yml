@@ -1,0 +1,242 @@
+openapi: 3.0.3
+info:
+  title: Inkit Document Generation Batches API
+  description: 'The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Inkit Support
+    url: https://docs.inkit.com/docs/welcome-to-inkit
+  license:
+    name: Proprietary
+    url: https://www.inkit.com
+servers:
+- url: https://api.inkit.com/v1
+  description: Inkit Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Batches
+  description: Batch document render operations
+paths:
+  /batch:
+    post:
+      operationId: createBatch
+      summary: Create Batch
+      description: Creates a batch of document renders from a single template.
+      tags:
+      - Batches
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchCreateRequest'
+      responses:
+        '200':
+          description: Batch created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Batch'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    get:
+      operationId: listBatches
+      summary: List Batches
+      description: Returns a list of batch render jobs.
+      tags:
+      - Batches
+      parameters:
+      - name: destination_name
+        in: query
+        description: Filter by destination name
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of batches
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /batch/{id}:
+    get:
+      operationId: getBatch
+      summary: Get Batch
+      description: Returns a single batch by ID.
+      tags:
+      - Batches
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: Batch details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Batch'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  schemas:
+    BatchListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Batch'
+    Batch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique batch identifier
+        template_id:
+          type: string
+          description: ID of the source template
+        renders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Render'
+        status:
+          type: string
+          description: Overall batch status
+        created_at:
+          type: string
+          format: date-time
+          description: Batch creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Batch last update timestamp
+    BatchCreateRequest:
+      type: object
+      required:
+      - template_id
+      - renders
+      properties:
+        template_id:
+          type: string
+          description: ID of the template to use for all renders in the batch
+        renders:
+          type: array
+          description: List of render items with individual merge parameters and destinations
+          items:
+            $ref: '#/components/schemas/BatchRenderItem'
+    Render:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique render identifier
+        template_id:
+          type: string
+          description: ID of the source template
+        merge_parameters:
+          type: object
+          additionalProperties: true
+          description: Merge parameters used for this render
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+        status:
+          type: string
+          description: Current render status
+        created_at:
+          type: string
+          format: date-time
+          description: Render creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Render last update timestamp
+    BatchRenderItem:
+      type: object
+      properties:
+        merge_parameters:
+          type: object
+          description: Merge parameters for this individual render in the batch
+          additionalProperties: true
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+    Destination:
+      type: object
+      description: Document delivery destination configuration
+      properties:
+        name:
+          type: string
+          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
+        status:
+          type: string
+          description: Current delivery status
+        data:
+          type: object
+          description: Destination-specific configuration data
+          additionalProperties: true
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Unique identifier of the resource
+      required: true
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad request - invalid parameters or request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Inkit-API-Token
+      description: API token for Inkit authentication

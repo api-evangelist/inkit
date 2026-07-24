@@ -1,0 +1,186 @@
+openapi: 3.0.3
+info:
+  title: Inkit Document Generation Batches Documents API
+  description: 'The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Inkit Support
+    url: https://docs.inkit.com/docs/welcome-to-inkit
+  license:
+    name: Proprietary
+    url: https://www.inkit.com
+servers:
+- url: https://api.inkit.com/v1
+  description: Inkit Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Documents
+  description: Manage stored documents
+paths:
+  /document:
+    get:
+      operationId: listDocuments
+      summary: List Documents
+      description: Returns a list of stored documents.
+      tags:
+      - Documents
+      parameters:
+      - name: search
+        in: query
+        description: Search term to filter documents
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of documents
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /document/{id}:
+    get:
+      operationId: getDocument
+      summary: Get Document
+      description: Returns a single document by ID.
+      tags:
+      - Documents
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: Document details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    delete:
+      operationId: deleteDocument
+      summary: Delete Document
+      description: Deletes a document by ID.
+      tags:
+      - Documents
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '204':
+          description: Document deleted successfully
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /download/{id}:
+    get:
+      operationId: downloadDocument
+      summary: Download Document
+      description: Downloads a document as a PDF file.
+      tags:
+      - Documents
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: PDF file content
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Unique identifier of the resource
+      required: true
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    DocumentListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique document identifier
+        name:
+          type: string
+          description: Document name
+        render_id:
+          type: string
+          description: ID of the render that generated this document
+        template_id:
+          type: string
+          description: ID of the source template
+        status:
+          type: string
+          description: Document status
+        created_at:
+          type: string
+          format: date-time
+          description: Document creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Document last update timestamp
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Inkit-API-Token
+      description: API token for Inkit authentication

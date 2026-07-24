@@ -1,0 +1,245 @@
+openapi: 3.0.3
+info:
+  title: Inkit Document Generation Batches Templates API
+  description: 'The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Inkit Support
+    url: https://docs.inkit.com/docs/welcome-to-inkit
+  license:
+    name: Proprietary
+    url: https://www.inkit.com
+servers:
+- url: https://api.inkit.com/v1
+  description: Inkit Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Templates
+  description: Manage document templates
+paths:
+  /template:
+    post:
+      operationId: createTemplate
+      summary: Create Template
+      description: Creates a new document template.
+      tags:
+      - Templates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TemplateCreateRequest'
+      responses:
+        '200':
+          description: Template created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    get:
+      operationId: listTemplates
+      summary: List Templates
+      description: Returns a list of document templates.
+      tags:
+      - Templates
+      parameters:
+      - name: search
+        in: query
+        description: Search term to filter templates
+        required: false
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: Sort order for results
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page number for pagination
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      - name: source
+        in: query
+        description: Filter by template source type
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of templates
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /template/{id}:
+    get:
+      operationId: getTemplate
+      summary: Get Template
+      description: Returns a single template by ID.
+      tags:
+      - Templates
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      responses:
+        '200':
+          description: Template details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Template'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Unique identifier of the resource
+      required: true
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad request - invalid parameters or request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Destination:
+      type: object
+      description: Document delivery destination configuration
+      properties:
+        name:
+          type: string
+          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
+        status:
+          type: string
+          description: Current delivery status
+        data:
+          type: object
+          description: Destination-specific configuration data
+          additionalProperties: true
+    TemplateData:
+      type: object
+      description: Template dimensions and format settings
+      properties:
+        width:
+          type: number
+          description: Page width
+        height:
+          type: number
+          description: Page height
+        unit:
+          type: string
+          description: Unit for dimensions (e.g. px, mm, in)
+    Template:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique template identifier
+        name:
+          type: string
+          description: Template name
+        source:
+          type: string
+          description: Template source type
+        data:
+          $ref: '#/components/schemas/TemplateData'
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+        created_at:
+          type: string
+          format: date-time
+          description: Template creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Template last update timestamp
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
+    TemplateCreateRequest:
+      type: object
+      required:
+      - name
+      - source
+      properties:
+        name:
+          type: string
+          description: Template name
+        source:
+          type: string
+          description: Template source type (e.g. html, pdf, docx)
+        file:
+          type: string
+          description: Base64-encoded template file content
+        data:
+          $ref: '#/components/schemas/TemplateData'
+        destinations:
+          type: array
+          description: List of delivery destinations
+          items:
+            $ref: '#/components/schemas/Destination'
+    TemplateListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Template'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Inkit-API-Token
+      description: API token for Inkit authentication
