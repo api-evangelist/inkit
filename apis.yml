@@ -10,7 +10,20 @@ description: >
   workflow automation, manage mail piece delivery, and integrate document operations into their own
   applications using SDKs available for Python, Node.js, Go, and Java.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/inkit.png
 tags:
   - Document Generation
   - PDF
@@ -28,47 +41,149 @@ modified: '2026-06-12'
 specificationVersion: '0.19'
 
 apis:
-  - aid: inkit:inkit-document-generation-api
-    name: Inkit Document Generation API
-    description: >
-      The Inkit REST API enables developers to generate PDF documents from templates, manage
-      document storage and retrieval, launch document workflows and batches, send documents
-      via mail, and manage digital signature requests. Authentication uses the X-Inkit-API-Token
-      header and the API enforces a rate limit of 300 requests per minute.
-    humanURL: https://docs.inkit.com/docs/using-the-api
-    baseURL: https://api.inkit.com/v1
-    tags:
-      - Document Generation
-      - PDF
-      - Templates
-      - Workflows
-      - Digital Signatures
-      - Mail Delivery
-    properties:
-      - type: Documentation
-        url: https://docs.inkit.com/docs/using-the-api
-      - type: APIReference
-        url: https://docs.inkit.com/reference/post_v1-generate-1
-      - type: OpenAPI
-        url: https://docs.inkit.com/llms.txt
-      - type: OpenAPI
-        url: openapi/inkit-document-generation-api-openapi.yml
-      - type: JSONSchema
-        url: json-schema/inkit-render.json
-      - type: JSONSchema
-        url: json-schema/inkit-template.json
-      - type: JSONSchema
-        url: json-schema/inkit-document.json
-      - type: PythonSDK
-        url: https://github.com/inkit/inkit-python
-      - type: NodejsSDK
-        url: https://github.com/inkit/inkit-nodejs
-      - type: GoSDK
-        url: https://github.com/inkit/inkit-go
-      - type: JavaSDK
-        url: https://github.com/inkit/inkit-java
-
+- aid: inkit:inkit-batches-api
+  name: Inkit Batches API
+  description: Batch document render operations
+  humanURL: https://docs.inkit.com/docs/using-the-api
+  baseURL: https://api.inkit.com/v1
+  tags:
+  - Batches
+  properties:
+  - type: OpenAPI
+    url: openapi/inkit-batches-api-openapi.yml
+  - type: Documentation
+    url: https://docs.inkit.com/docs/using-the-api
+  - type: APIReference
+    url: https://docs.inkit.com/reference/post_v1-generate-1
+  - type: JSONSchema
+    url: json-schema/inkit-render.json
+  - type: JSONSchema
+    url: json-schema/inkit-template.json
+  - type: JSONSchema
+    url: json-schema/inkit-document.json
+  - type: PythonSDK
+    url: https://github.com/inkit/inkit-python
+  - type: NodejsSDK
+    url: https://github.com/inkit/inkit-nodejs
+  - type: GoSDK
+    url: https://github.com/inkit/inkit-go
+  - type: JavaSDK
+    url: https://github.com/inkit/inkit-java
+- aid: inkit:inkit-documents-api
+  name: Inkit Documents API
+  description: Manage stored documents
+  humanURL: https://docs.inkit.com/docs/using-the-api
+  baseURL: https://api.inkit.com/v1
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/inkit-documents-api-openapi.yml
+  - type: Documentation
+    url: https://docs.inkit.com/docs/using-the-api
+  - type: APIReference
+    url: https://docs.inkit.com/reference/post_v1-generate-1
+  - type: JSONSchema
+    url: json-schema/inkit-render.json
+  - type: JSONSchema
+    url: json-schema/inkit-template.json
+  - type: JSONSchema
+    url: json-schema/inkit-document.json
+  - type: PythonSDK
+    url: https://github.com/inkit/inkit-python
+  - type: NodejsSDK
+    url: https://github.com/inkit/inkit-nodejs
+  - type: GoSDK
+    url: https://github.com/inkit/inkit-go
+  - type: JavaSDK
+    url: https://github.com/inkit/inkit-java
+- aid: inkit:inkit-folders-api
+  name: Inkit Folders API
+  description: Manage document folders
+  humanURL: https://docs.inkit.com/docs/using-the-api
+  baseURL: https://api.inkit.com/v1
+  tags:
+  - Folders
+  properties:
+  - type: OpenAPI
+    url: openapi/inkit-folders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.inkit.com/docs/using-the-api
+  - type: APIReference
+    url: https://docs.inkit.com/reference/post_v1-generate-1
+  - type: JSONSchema
+    url: json-schema/inkit-render.json
+  - type: JSONSchema
+    url: json-schema/inkit-template.json
+  - type: JSONSchema
+    url: json-schema/inkit-document.json
+  - type: PythonSDK
+    url: https://github.com/inkit/inkit-python
+  - type: NodejsSDK
+    url: https://github.com/inkit/inkit-nodejs
+  - type: GoSDK
+    url: https://github.com/inkit/inkit-go
+  - type: JavaSDK
+    url: https://github.com/inkit/inkit-java
+- aid: inkit:inkit-renders-api
+  name: Inkit Renders API
+  description: Generate and retrieve document renders (PDFs)
+  humanURL: https://docs.inkit.com/docs/using-the-api
+  baseURL: https://api.inkit.com/v1
+  tags:
+  - Renders
+  properties:
+  - type: OpenAPI
+    url: openapi/inkit-renders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.inkit.com/docs/using-the-api
+  - type: APIReference
+    url: https://docs.inkit.com/reference/post_v1-generate-1
+  - type: JSONSchema
+    url: json-schema/inkit-render.json
+  - type: JSONSchema
+    url: json-schema/inkit-template.json
+  - type: JSONSchema
+    url: json-schema/inkit-document.json
+  - type: PythonSDK
+    url: https://github.com/inkit/inkit-python
+  - type: NodejsSDK
+    url: https://github.com/inkit/inkit-nodejs
+  - type: GoSDK
+    url: https://github.com/inkit/inkit-go
+  - type: JavaSDK
+    url: https://github.com/inkit/inkit-java
+- aid: inkit:inkit-templates-api
+  name: Inkit Templates API
+  description: Manage document templates
+  humanURL: https://docs.inkit.com/docs/using-the-api
+  baseURL: https://api.inkit.com/v1
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/inkit-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.inkit.com/docs/using-the-api
+  - type: APIReference
+    url: https://docs.inkit.com/reference/post_v1-generate-1
+  - type: JSONSchema
+    url: json-schema/inkit-render.json
+  - type: JSONSchema
+    url: json-schema/inkit-template.json
+  - type: JSONSchema
+    url: json-schema/inkit-document.json
+  - type: PythonSDK
+    url: https://github.com/inkit/inkit-python
+  - type: NodejsSDK
+    url: https://github.com/inkit/inkit-nodejs
+  - type: GoSDK
+    url: https://github.com/inkit/inkit-go
+  - type: JavaSDK
+    url: https://github.com/inkit/inkit-java
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/inkit/overview
   - type: AgenticAccess
     url: agentic-access/inkit-agentic-access.yml
   - type: TrustCenter
