@@ -1,0 +1,948 @@
+{
+  "info": {
+    "_postman_id": "12eb5c5f-d89a-4bfb-88d1-e647eed746a9",
+    "name": "Inkit Document Generation Batches Documents API",
+    "description": "The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.\n\n\nContact Support:\n Name: Inkit Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:58:25.000Z",
+    "updatedAt": "2026-07-28T01:58:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-12eb5c5f-d89a-4bfb-88d1-e647eed746a9"
+  },
+  "item": [
+    {
+      "name": "document",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Document",
+              "id": "fd44051e-0286-41af-a8e7-318fbaa5398d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f2a91645-7066-472f-be0c-d35555059528",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "description": "Returns a single document by ID."
+              },
+              "response": [
+                {
+                  "id": "41ee34eb-4dcf-4eb0-b591-cd99eed04c66",
+                  "name": "Document details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"render_id\": \"<string>\",\n  \"template_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-41ee34eb-4dcf-4eb0-b591-cd99eed04c66"
+                },
+                {
+                  "id": "1b2fd3ba-f5d1-4ce5-bbfd-5f57650609be",
+                  "name": "Unauthorized - invalid or missing API token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-1b2fd3ba-f5d1-4ce5-bbfd-5f57650609be"
+                },
+                {
+                  "id": "a3006411-5bc1-4513-ae06-2afa3e1e362e",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-a3006411-5bc1-4513-ae06-2afa3e1e362e"
+                },
+                {
+                  "id": "73aafb2e-e930-4e44-8b2b-1ad5a67994a2",
+                  "name": "Rate limit exceeded - max 300 requests per minute",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-73aafb2e-e930-4e44-8b2b-1ad5a67994a2"
+                }
+              ],
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-fd44051e-0286-41af-a8e7-318fbaa5398d"
+            },
+            {
+              "name": "Delete Document",
+              "id": "1f240f13-f34d-4dfe-804a-3ff89b4608e9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5f54de8d-9f6c-4969-ab53-ff2faf1c439c",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "description": "Deletes a document by ID."
+              },
+              "response": [
+                {
+                  "id": "607c7efc-fddd-4939-96e1-0fe6fbe18dd1",
+                  "name": "Document deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-607c7efc-fddd-4939-96e1-0fe6fbe18dd1"
+                },
+                {
+                  "id": "565baad5-d183-43bb-9577-bf017ff70d0c",
+                  "name": "Unauthorized - invalid or missing API token",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-565baad5-d183-43bb-9577-bf017ff70d0c"
+                },
+                {
+                  "id": "2680b5cf-eddb-4f7c-b8af-522b4a9991ba",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-2680b5cf-eddb-4f7c-b8af-522b4a9991ba"
+                },
+                {
+                  "id": "5f3a6cdd-f9b6-4bed-98e9-6e5a2caca262",
+                  "name": "Rate limit exceeded - max 300 requests per minute",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/document/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "document",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-5f3a6cdd-f9b6-4bed-98e9-6e5a2caca262"
+                }
+              ],
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-1f240f13-f34d-4dfe-804a-3ff89b4608e9"
+            }
+          ],
+          "id": "8020734e-077e-4699-9469-d2eb7516dfaf",
+          "createdAt": "2026-07-28T01:58:25.000Z",
+          "updatedAt": "2026-07-28T01:58:25.000Z",
+          "uid": "35240-8020734e-077e-4699-9469-d2eb7516dfaf"
+        },
+        {
+          "name": "List Documents",
+          "id": "0460c597-8bcc-472c-bd74-2a977c5c9f82",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/document?search=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "document"
+              ],
+              "query": [
+                {
+                  "description": "Search term to filter documents",
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of stored documents."
+          },
+          "response": [
+            {
+              "id": "3e192206-05bd-46a2-8d8b-e9addc39c9c6",
+              "name": "A list of documents",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document?search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term to filter documents",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"render_id\": \"<string>\",\n      \"template_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"render_id\": \"<string>\",\n      \"template_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-3e192206-05bd-46a2-8d8b-e9addc39c9c6"
+            },
+            {
+              "id": "6b7821b8-fe9a-43e7-813c-4844e0d9a4a1",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document?search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term to filter documents",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-6b7821b8-fe9a-43e7-813c-4844e0d9a4a1"
+            },
+            {
+              "id": "ea9a5a23-ba21-4e71-be40-4b877d0708e4",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/document?search=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "document"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term to filter documents",
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-ea9a5a23-ba21-4e71-be40-4b877d0708e4"
+            }
+          ],
+          "createdAt": "2026-07-28T01:58:25.000Z",
+          "updatedAt": "2026-07-28T01:58:25.000Z",
+          "uid": "35240-0460c597-8bcc-472c-bd74-2a977c5c9f82"
+        }
+      ],
+      "id": "a2af96de-fe72-425f-be04-7e978231e5e0",
+      "createdAt": "2026-07-28T01:58:25.000Z",
+      "updatedAt": "2026-07-28T01:58:25.000Z",
+      "uid": "35240-a2af96de-fe72-425f-be04-7e978231e5e0"
+    },
+    {
+      "name": "download",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Download Document",
+              "id": "8e47818e-eaed-4297-bce3-11e7399d5ed9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/download/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "download",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "9e3de33d-1a21-4a61-8f3e-6faca1e15f0d",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "description": "Downloads a document as a PDF file."
+              },
+              "response": [
+                {
+                  "id": "809ddd23-f2aa-4384-87e2-31d2cc330e93",
+                  "name": "PDF file content",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/pdf"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/download/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "download",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/pdf"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<binary>",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-809ddd23-f2aa-4384-87e2-31d2cc330e93"
+                },
+                {
+                  "id": "c3c2446b-db29-4422-a979-bda4be31dd12",
+                  "name": "Unauthorized - invalid or missing API token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/download/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "download",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-c3c2446b-db29-4422-a979-bda4be31dd12"
+                },
+                {
+                  "id": "2da76211-cb0a-4b51-8f5a-b030b0661585",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/download/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "download",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-2da76211-cb0a-4b51-8f5a-b030b0661585"
+                },
+                {
+                  "id": "f06ec699-8be9-4871-941b-1e9a42c092e4",
+                  "name": "Rate limit exceeded - max 300 requests per minute",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/download/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "download",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-f06ec699-8be9-4871-941b-1e9a42c092e4"
+                }
+              ],
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-8e47818e-eaed-4297-bce3-11e7399d5ed9"
+            }
+          ],
+          "id": "ebe89ae9-663d-4aed-9015-2a4788a0359d",
+          "createdAt": "2026-07-28T01:58:25.000Z",
+          "updatedAt": "2026-07-28T01:58:25.000Z",
+          "uid": "35240-ebe89ae9-663d-4aed-9015-2a4788a0359d"
+        }
+      ],
+      "id": "930be64f-7dc7-4114-adbb-2b64f0d3a585",
+      "createdAt": "2026-07-28T01:58:25.000Z",
+      "updatedAt": "2026-07-28T01:58:25.000Z",
+      "uid": "35240-930be64f-7dc7-4114-adbb-2b64f0d3a585"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Inkit-API-Token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.inkit.com/v1"
+    }
+  ]
+}

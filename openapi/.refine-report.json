@@ -1,0 +1,22 @@
+{
+  "provider": "inkit",
+  "sources": [
+    "inkit-batches-api-openapi.yml",
+    "inkit-documents-api-openapi.yml",
+    "inkit-folders-api-openapi.yml",
+    "inkit-renders-api-openapi.yml",
+    "inkit-templates-api-openapi.yml"
+  ],
+  "outputs": [
+    "inkit-batches-api-openapi.yml",
+    "inkit-documents-api-openapi.yml",
+    "inkit-folders-api-openapi.yml",
+    "inkit-renders-api-openapi.yml",
+    "inkit-templates-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

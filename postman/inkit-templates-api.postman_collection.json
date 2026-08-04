@@ -1,0 +1,804 @@
+{
+  "info": {
+    "_postman_id": "2bbaeba4-6a52-4fe0-9cdb-f2ba9cfcc50b",
+    "name": "Inkit Document Generation Batches Templates API",
+    "description": "The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.\n\n\nContact Support:\n Name: Inkit Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:58:28.000Z",
+    "updatedAt": "2026-07-28T01:58:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2bbaeba4-6a52-4fe0-9cdb-f2ba9cfcc50b"
+  },
+  "item": [
+    {
+      "name": "template",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Template",
+              "id": "a6551f06-2147-4f4c-8010-0d284c7ce385",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/template/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "template",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "65174e32-4a4d-4db8-93d0-0aea2ad27744",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "description": "Returns a single template by ID."
+              },
+              "response": [
+                {
+                  "id": "2ffae4f6-e53c-4fda-9df5-38825fe629ff",
+                  "name": "Template details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"dolore_4\": -69323565\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"proidentc9c\": \"Ut\"\n      }\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T01:58:29.000Z",
+                  "updatedAt": "2026-07-28T01:58:29.000Z",
+                  "uid": "35240-2ffae4f6-e53c-4fda-9df5-38825fe629ff"
+                },
+                {
+                  "id": "97f01261-8acf-4714-975c-1374f4c1f986",
+                  "name": "Unauthorized - invalid or missing API token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:29.000Z",
+                  "updatedAt": "2026-07-28T01:58:29.000Z",
+                  "uid": "35240-97f01261-8acf-4714-975c-1374f4c1f986"
+                },
+                {
+                  "id": "5752cb65-5ee5-4f31-9007-61814e047f36",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:29.000Z",
+                  "updatedAt": "2026-07-28T01:58:29.000Z",
+                  "uid": "35240-5752cb65-5ee5-4f31-9007-61814e047f36"
+                },
+                {
+                  "id": "0019d9b1-3b37-4f02-bbf8-aedcdc93da15",
+                  "name": "Rate limit exceeded - max 300 requests per minute",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:29.000Z",
+                  "updatedAt": "2026-07-28T01:58:29.000Z",
+                  "uid": "35240-0019d9b1-3b37-4f02-bbf8-aedcdc93da15"
+                }
+              ],
+              "createdAt": "2026-07-28T01:58:29.000Z",
+              "updatedAt": "2026-07-28T01:58:29.000Z",
+              "uid": "35240-a6551f06-2147-4f4c-8010-0d284c7ce385"
+            }
+          ],
+          "id": "a0bb744a-5996-4606-ae34-2e60be0f4a1c",
+          "createdAt": "2026-07-28T01:58:29.000Z",
+          "updatedAt": "2026-07-28T01:58:29.000Z",
+          "uid": "35240-a0bb744a-5996-4606-ae34-2e60be0f4a1c"
+        },
+        {
+          "name": "Create Template",
+          "id": "266ffd6c-81f9-41dd-b75d-3d0ece1430a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"in_c6c\": -88445846.32711041,\n        \"cillum_61\": false\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"aute7\": \"do cupidatat aliqua\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/template",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "template"
+              ]
+            },
+            "description": "Creates a new document template."
+          },
+          "response": [
+            {
+              "id": "3bc6b73d-1fe2-4d5d-bb3f-25a2bf60a953",
+              "name": "Template created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"in_c6c\": -88445846.32711041,\n        \"cillum_61\": false\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"aute7\": \"do cupidatat aliqua\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "template"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"dolore_4\": -69323565\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"proidentc9c\": \"Ut\"\n      }\n    }\n  ],\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T01:58:29.000Z",
+              "updatedAt": "2026-07-28T01:58:29.000Z",
+              "uid": "35240-3bc6b73d-1fe2-4d5d-bb3f-25a2bf60a953"
+            },
+            {
+              "id": "24511c0b-893d-4796-be27-19894dd7d48d",
+              "name": "Bad request - invalid parameters or request body",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"in_c6c\": -88445846.32711041,\n        \"cillum_61\": false\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"aute7\": \"do cupidatat aliqua\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "template"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:29.000Z",
+              "updatedAt": "2026-07-28T01:58:29.000Z",
+              "uid": "35240-24511c0b-893d-4796-be27-19894dd7d48d"
+            },
+            {
+              "id": "c03d039a-4481-46cb-89c1-6670bf47e567",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"in_c6c\": -88445846.32711041,\n        \"cillum_61\": false\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"aute7\": \"do cupidatat aliqua\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "template"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:29.000Z",
+              "updatedAt": "2026-07-28T01:58:29.000Z",
+              "uid": "35240-c03d039a-4481-46cb-89c1-6670bf47e567"
+            },
+            {
+              "id": "54e7586e-ab62-4dc5-ad13-f10978564090",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"in_c6c\": -88445846.32711041,\n        \"cillum_61\": false\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"aute7\": \"do cupidatat aliqua\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "template"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:29.000Z",
+              "updatedAt": "2026-07-28T01:58:29.000Z",
+              "uid": "35240-54e7586e-ab62-4dc5-ad13-f10978564090"
+            }
+          ],
+          "createdAt": "2026-07-28T01:58:29.000Z",
+          "updatedAt": "2026-07-28T01:58:29.000Z",
+          "uid": "35240-266ffd6c-81f9-41dd-b75d-3d0ece1430a6"
+        },
+        {
+          "name": "List Templates",
+          "id": "4be9dccf-a1ee-4c4b-8f55-b046e5fcd6b1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/template?search=<string>&sort=<string>&page=<integer>&source=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "template"
+              ],
+              "query": [
+                {
+                  "description": "Search term to filter templates",
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sort order for results",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page number for pagination",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by template source type",
+                  "key": "source",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of document templates."
+          },
+          "response": [
+            {
+              "id": "6282c833-403a-4440-abc0-af4463b14519",
+              "name": "A list of templates",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/template?search=<string>&sort=<string>&page=<integer>&source=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "template"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term to filter templates",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort order for results",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number for pagination",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by template source type",
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"source\": \"<string>\",\n      \"data\": {\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"unit\": \"<string>\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"irure4\": -50100734\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"labore_\": -22944276,\n            \"voluptate_a\": -69400075.2444869\n          }\n        }\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"source\": \"<string>\",\n      \"data\": {\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"unit\": \"<string>\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"magna_9b\": true,\n            \"cillum_97\": -44675692\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"qui69\": true,\n            \"fugiata55\": -86413152.1776172\n          }\n        }\n      ],\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:58:29.000Z",
+              "updatedAt": "2026-07-28T01:58:29.000Z",
+              "uid": "35240-6282c833-403a-4440-abc0-af4463b14519"
+            },
+            {
+              "id": "c5f1fd23-99d0-461c-8e63-1429f1c86bb9",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/template?search=<string>&sort=<string>&page=<integer>&source=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "template"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term to filter templates",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort order for results",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number for pagination",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by template source type",
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:29.000Z",
+              "updatedAt": "2026-07-28T01:58:29.000Z",
+              "uid": "35240-c5f1fd23-99d0-461c-8e63-1429f1c86bb9"
+            },
+            {
+              "id": "b63407dc-8bd7-44fa-a13a-931a55a0c9c3",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/template?search=<string>&sort=<string>&page=<integer>&source=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "template"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search term to filter templates",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort order for results",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number for pagination",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by template source type",
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:29.000Z",
+              "updatedAt": "2026-07-28T01:58:29.000Z",
+              "uid": "35240-b63407dc-8bd7-44fa-a13a-931a55a0c9c3"
+            }
+          ],
+          "createdAt": "2026-07-28T01:58:29.000Z",
+          "updatedAt": "2026-07-28T01:58:29.000Z",
+          "uid": "35240-4be9dccf-a1ee-4c4b-8f55-b046e5fcd6b1"
+        }
+      ],
+      "id": "20f057be-d289-455b-b22d-d070cd414260",
+      "createdAt": "2026-07-28T01:58:29.000Z",
+      "updatedAt": "2026-07-28T01:58:29.000Z",
+      "uid": "35240-20f057be-d289-455b-b22d-d070cd414260"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Inkit-API-Token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.inkit.com/v1"
+    }
+  ]
+}

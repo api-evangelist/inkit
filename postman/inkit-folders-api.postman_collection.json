@@ -1,0 +1,254 @@
+{
+  "info": {
+    "_postman_id": "08cef915-e6b2-40c2-8f31-4e816dde97fc",
+    "name": "Inkit Document Generation Batches Folders API",
+    "description": "The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.\n\n\nContact Support:\n Name: Inkit Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:58:26.000Z",
+    "updatedAt": "2026-07-28T01:58:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-08cef915-e6b2-40c2-8f31-4e816dde97fc"
+  },
+  "item": [
+    {
+      "name": "folder",
+      "item": [
+        {
+          "name": "List Folders",
+          "id": "25fbb842-aa65-48ee-b145-04debde35a95",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/folder?sort=<string>&data_description=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "folder"
+              ],
+              "query": [
+                {
+                  "description": "Sort order for results",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter folders by data description",
+                  "key": "data_description",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of all folders available in the account."
+          },
+          "response": [
+            {
+              "id": "22cd7d28-1610-4fec-a31e-01c0ed62b97f",
+              "name": "A list of folders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folder?sort=<string>&data_description=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folder"
+                  ],
+                  "query": [
+                    {
+                      "description": "Sort order for results",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter folders by data description",
+                      "key": "data_description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"data_description\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"data_description\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:58:26.000Z",
+              "updatedAt": "2026-07-28T01:58:26.000Z",
+              "uid": "35240-22cd7d28-1610-4fec-a31e-01c0ed62b97f"
+            },
+            {
+              "id": "fe3b8051-a77d-4cd1-97ff-bbc61f6d843b",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folder?sort=<string>&data_description=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folder"
+                  ],
+                  "query": [
+                    {
+                      "description": "Sort order for results",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter folders by data description",
+                      "key": "data_description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:26.000Z",
+              "updatedAt": "2026-07-28T01:58:26.000Z",
+              "uid": "35240-fe3b8051-a77d-4cd1-97ff-bbc61f6d843b"
+            },
+            {
+              "id": "5d3a0b0f-98ef-45f0-8a3d-ee0998b11a26",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/folder?sort=<string>&data_description=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "folder"
+                  ],
+                  "query": [
+                    {
+                      "description": "Sort order for results",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter folders by data description",
+                      "key": "data_description",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:26.000Z",
+              "updatedAt": "2026-07-28T01:58:26.000Z",
+              "uid": "35240-5d3a0b0f-98ef-45f0-8a3d-ee0998b11a26"
+            }
+          ],
+          "createdAt": "2026-07-28T01:58:26.000Z",
+          "updatedAt": "2026-07-28T01:58:26.000Z",
+          "uid": "35240-25fbb842-aa65-48ee-b145-04debde35a95"
+        }
+      ],
+      "id": "d8529624-d90c-4105-a464-30a58ac833a7",
+      "createdAt": "2026-07-28T01:58:26.000Z",
+      "updatedAt": "2026-07-28T01:58:26.000Z",
+      "uid": "35240-d8529624-d90c-4105-a464-30a58ac833a7"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Inkit-API-Token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.inkit.com/v1"
+    }
+  ]
+}

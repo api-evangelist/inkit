@@ -1,0 +1,744 @@
+{
+  "info": {
+    "_postman_id": "006421d1-d6f9-42b2-af75-b5ee482a8af7",
+    "name": "Inkit Document Generation Batches API",
+    "description": "The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.\n\n\nContact Support:\n Name: Inkit Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:58:24.000Z",
+    "updatedAt": "2026-07-28T01:58:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-006421d1-d6f9-42b2-af75-b5ee482a8af7"
+  },
+  "item": [
+    {
+      "name": "batch",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get Batch",
+              "id": "bbdf5e9e-8612-45ad-8c5e-54a823370390",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/batch/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bdb2b722-7c35-41f0-8f6d-c7eb726dd626",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "description": "Returns a single batch by ID."
+              },
+              "response": [
+                {
+                  "id": "62629d0c-4af0-4095-a968-cab6688eb499",
+                  "name": "Batch details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"id\": \"<string>\",\n      \"template_id\": \"<string>\",\n      \"merge_parameters\": {\n        \"labore_580\": false,\n        \"reprehenderit_2f7\": \"est mollit consectetur sit\",\n        \"ipsum684\": \"laborum\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"aliquip04\": true\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"mollitae_\": \"velit sunt in\",\n            \"dolor81c\": false\n          }\n        }\n      ],\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"template_id\": \"<string>\",\n      \"merge_parameters\": {\n        \"consectetur8\": 70699401.95686609\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"dolore_e_5\": 87278896.74870753,\n            \"eaf3e\": 93307382.63128832\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"id4f\": -27639894,\n            \"sunt4b7\": 22757425.43207459\n          }\n        }\n      ],\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-62629d0c-4af0-4095-a968-cab6688eb499"
+                },
+                {
+                  "id": "c9305074-ae83-40c0-876e-6500f321793f",
+                  "name": "Unauthorized - invalid or missing API token",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-c9305074-ae83-40c0-876e-6500f321793f"
+                },
+                {
+                  "id": "aee58d57-d72e-406b-8aa4-fa6c06795df7",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-aee58d57-d72e-406b-8aa4-fa6c06795df7"
+                },
+                {
+                  "id": "35672a7c-4bc7-4054-826a-73b4738adbb8",
+                  "name": "Rate limit exceeded - max 300 requests per minute",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-Inkit-API-Token",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/batch/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "batch",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:58:25.000Z",
+                  "updatedAt": "2026-07-28T01:58:25.000Z",
+                  "uid": "35240-35672a7c-4bc7-4054-826a-73b4738adbb8"
+                }
+              ],
+              "createdAt": "2026-07-28T01:58:24.000Z",
+              "updatedAt": "2026-07-28T01:58:24.000Z",
+              "uid": "35240-bbdf5e9e-8612-45ad-8c5e-54a823370390"
+            }
+          ],
+          "id": "1a068874-4711-4488-826c-a94e98838aa5",
+          "createdAt": "2026-07-28T01:58:24.000Z",
+          "updatedAt": "2026-07-28T01:58:24.000Z",
+          "uid": "35240-1a068874-4711-4488-826c-a94e98838aa5"
+        },
+        {
+          "name": "Create Batch",
+          "id": "b382bb92-0435-414b-aa4a-01892ce3a66d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"sunte\": -72860741\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"doloref\": \"Lorem in\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"labore___8\": true,\n            \"culpa984\": 86318868.16850126,\n            \"quisa0a\": -28470624.765366897\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"sed_120\": 74665973.96028867,\n        \"anim3\": 69957924\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"dolore2c\": 30751077\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"ex_563\": -23026795.83575107,\n            \"dolore_0e7\": -84554986\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/batch",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batch"
+              ]
+            },
+            "description": "Creates a batch of document renders from a single template."
+          },
+          "response": [
+            {
+              "id": "885732e4-1c87-409e-9ce9-afce159f198f",
+              "name": "Batch created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"sunte\": -72860741\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"doloref\": \"Lorem in\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"labore___8\": true,\n            \"culpa984\": 86318868.16850126,\n            \"quisa0a\": -28470624.765366897\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"sed_120\": 74665973.96028867,\n        \"anim3\": 69957924\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"dolore2c\": 30751077\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"ex_563\": -23026795.83575107,\n            \"dolore_0e7\": -84554986\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/batch",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"id\": \"<string>\",\n      \"template_id\": \"<string>\",\n      \"merge_parameters\": {\n        \"labore_580\": false,\n        \"reprehenderit_2f7\": \"est mollit consectetur sit\",\n        \"ipsum684\": \"laborum\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"aliquip04\": true\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"mollitae_\": \"velit sunt in\",\n            \"dolor81c\": false\n          }\n        }\n      ],\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"template_id\": \"<string>\",\n      \"merge_parameters\": {\n        \"consectetur8\": 70699401.95686609\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"dolore_e_5\": 87278896.74870753,\n            \"eaf3e\": 93307382.63128832\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"id4f\": -27639894,\n            \"sunt4b7\": 22757425.43207459\n          }\n        }\n      ],\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-885732e4-1c87-409e-9ce9-afce159f198f"
+            },
+            {
+              "id": "a014b8ba-9d10-47f8-b574-5e0bc67e8fb4",
+              "name": "Bad request - invalid parameters or request body",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"sunte\": -72860741\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"doloref\": \"Lorem in\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"labore___8\": true,\n            \"culpa984\": 86318868.16850126,\n            \"quisa0a\": -28470624.765366897\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"sed_120\": 74665973.96028867,\n        \"anim3\": 69957924\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"dolore2c\": 30751077\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"ex_563\": -23026795.83575107,\n            \"dolore_0e7\": -84554986\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/batch",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-a014b8ba-9d10-47f8-b574-5e0bc67e8fb4"
+            },
+            {
+              "id": "d5bd1018-f6ac-4348-a71c-9cee741255f3",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"sunte\": -72860741\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"doloref\": \"Lorem in\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"labore___8\": true,\n            \"culpa984\": 86318868.16850126,\n            \"quisa0a\": -28470624.765366897\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"sed_120\": 74665973.96028867,\n        \"anim3\": 69957924\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"dolore2c\": 30751077\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"ex_563\": -23026795.83575107,\n            \"dolore_0e7\": -84554986\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/batch",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-d5bd1018-f6ac-4348-a71c-9cee741255f3"
+            },
+            {
+              "id": "07c87494-84dd-42a8-956f-13040617141f",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"sunte\": -72860741\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"doloref\": \"Lorem in\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"labore___8\": true,\n            \"culpa984\": 86318868.16850126,\n            \"quisa0a\": -28470624.765366897\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"sed_120\": 74665973.96028867,\n        \"anim3\": 69957924\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"dolore2c\": 30751077\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"ex_563\": -23026795.83575107,\n            \"dolore_0e7\": -84554986\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/batch",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-07c87494-84dd-42a8-956f-13040617141f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:58:24.000Z",
+          "updatedAt": "2026-07-28T01:58:24.000Z",
+          "uid": "35240-b382bb92-0435-414b-aa4a-01892ce3a66d"
+        },
+        {
+          "name": "List Batches",
+          "id": "cceb00b1-3c8f-4e9c-a7ec-6d6bc31d2cd8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/batch?destination_name=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "batch"
+              ],
+              "query": [
+                {
+                  "description": "Filter by destination name",
+                  "key": "destination_name",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of batch render jobs."
+          },
+          "response": [
+            {
+              "id": "bb0941ac-05c4-48fd-a910-d0a8d0f58a10",
+              "name": "A list of batches",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/batch?destination_name=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by destination name",
+                      "key": "destination_name",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"template_id\": \"<string>\",\n      \"renders\": [\n        {\n          \"id\": \"<string>\",\n          \"template_id\": \"<string>\",\n          \"merge_parameters\": {\n            \"incididunt_908\": false,\n            \"ipsum783\": 87749345.32550472,\n            \"tempor8f\": -23507902.659846544\n          },\n          \"destinations\": [\n            {\n              \"name\": \"<string>\",\n              \"status\": \"<string>\",\n              \"data\": {\n                \"laborum4\": -9948860,\n                \"deseruntfd\": \"nulla dolor\",\n                \"laboris_d\": 33495207,\n                \"ad_066\": 21566631\n              }\n            },\n            {\n              \"name\": \"<string>\",\n              \"status\": \"<string>\",\n              \"data\": {\n                \"sunt_112\": \"qui\",\n                \"velit_589\": 5986131.528602362,\n                \"fugiat_7\": -47752269\n              }\n            }\n          ],\n          \"status\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"template_id\": \"<string>\",\n          \"merge_parameters\": {\n            \"ea_6\": -60802548,\n            \"incididunt_d\": -86735120,\n            \"ine\": 54192785,\n            \"sit_6\": \"dolor qui\"\n          },\n          \"destinations\": [\n            {\n              \"name\": \"<string>\",\n              \"status\": \"<string>\",\n              \"data\": {\n                \"ex_aad\": \"in minim dolore\"\n              }\n            },\n            {\n              \"name\": \"<string>\",\n              \"status\": \"<string>\",\n              \"data\": {\n                \"exercitation_feb\": false\n              }\n            }\n          ],\n          \"status\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        }\n      ],\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"template_id\": \"<string>\",\n      \"renders\": [\n        {\n          \"id\": \"<string>\",\n          \"template_id\": \"<string>\",\n          \"merge_parameters\": {\n            \"tempor6\": \"dolor aute\",\n            \"officia_ab\": \"veniam\"\n          },\n          \"destinations\": [\n            {\n              \"name\": \"<string>\",\n              \"status\": \"<string>\",\n              \"data\": {\n                \"velit_c4\": -69630351.77118191\n              }\n            },\n            {\n              \"name\": \"<string>\",\n              \"status\": \"<string>\",\n              \"data\": {\n                \"culpa_a5\": 50612030,\n                \"sed_319\": -91344788\n              }\n            }\n          ],\n          \"status\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"template_id\": \"<string>\",\n          \"merge_parameters\": {\n            \"exercitation_f\": -89418918.76795256,\n            \"esse_f5b\": -81140625.40880215\n          },\n          \"destinations\": [\n            {\n              \"name\": \"<string>\",\n              \"status\": \"<string>\",\n              \"data\": {\n                \"Ut_9\": -42068308\n              }\n            },\n            {\n              \"name\": \"<string>\",\n              \"status\": \"<string>\",\n              \"data\": {\n                \"dolore_8c\": true\n              }\n            }\n          ],\n          \"status\": \"<string>\",\n          \"created_at\": \"<dateTime>\",\n          \"updated_at\": \"<dateTime>\"\n        }\n      ],\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-bb0941ac-05c4-48fd-a910-d0a8d0f58a10"
+            },
+            {
+              "id": "5372ae9b-47b4-4191-a053-ba68fa2fbfd2",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/batch?destination_name=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by destination name",
+                      "key": "destination_name",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-5372ae9b-47b4-4191-a053-ba68fa2fbfd2"
+            },
+            {
+              "id": "b608f0a1-370f-46f1-980b-1f555924d878",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/batch?destination_name=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "batch"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by destination name",
+                      "key": "destination_name",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"code\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:58:25.000Z",
+              "updatedAt": "2026-07-28T01:58:25.000Z",
+              "uid": "35240-b608f0a1-370f-46f1-980b-1f555924d878"
+            }
+          ],
+          "createdAt": "2026-07-28T01:58:24.000Z",
+          "updatedAt": "2026-07-28T01:58:24.000Z",
+          "uid": "35240-cceb00b1-3c8f-4e9c-a7ec-6d6bc31d2cd8"
+        }
+      ],
+      "id": "176c0da6-5ba7-4263-ae7d-9a1e0ff16081",
+      "createdAt": "2026-07-28T01:58:24.000Z",
+      "updatedAt": "2026-07-28T01:58:24.000Z",
+      "uid": "35240-176c0da6-5ba7-4263-ae7d-9a1e0ff16081"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Inkit-API-Token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.inkit.com/v1"
+    }
+  ]
+}
