@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Inkit Document Generation Batches Renders API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Inkit-API-Token",
+      "value": "{{X-Inkit-API-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Renders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Renders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.inkit.com/v1/render",
+            "params": [
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "destination_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by destination name"
+              },
+              {
+                "name": "destination_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by destination status"
+              }
+            ]
+          },
+          "docs": "Returns a list of document renders."
+        },
+        {
+          "info": {
+            "name": "Create Render",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.inkit.com/v1/render",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a PDF document from a template using provided merge parameters."
+        },
+        {
+          "info": {
+            "name": "Get Render",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.inkit.com/v1/render/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Returns a single render by ID."
+        },
+        {
+          "info": {
+            "name": "Download Render PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.inkit.com/v1/render/:id/pdf",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Downloads the generated PDF file for a render."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

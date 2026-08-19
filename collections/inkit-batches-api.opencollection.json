@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Inkit Document Generation Batches API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Inkit-API-Token",
+      "value": "{{X-Inkit-API-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Batches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Batches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.inkit.com/v1/batch",
+            "params": [
+              {
+                "name": "destination_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter by destination name"
+              }
+            ]
+          },
+          "docs": "Returns a list of batch render jobs."
+        },
+        {
+          "info": {
+            "name": "Create Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.inkit.com/v1/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a batch of document renders from a single template."
+        },
+        {
+          "info": {
+            "name": "Get Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.inkit.com/v1/batch/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Returns a single batch by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

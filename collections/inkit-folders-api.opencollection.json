@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Inkit Document Generation Batches Folders API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Inkit-API-Token",
+      "value": "{{X-Inkit-API-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Folders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.inkit.com/v1/folder",
+            "params": [
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "data_description",
+                "value": "",
+                "type": "query",
+                "description": "Filter folders by data description"
+              }
+            ]
+          },
+          "docs": "Returns a list of all folders available in the account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

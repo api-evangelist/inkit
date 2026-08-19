@@ -1,0 +1,739 @@
+{
+  "item": [
+    {
+      "id": "ed012e34-694e-4a2c-a35e-e85d5180b0d8",
+      "name": "Batches",
+      "description": {
+        "content": "Batch document render operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "56264438-fcbb-4356-a6d5-8f56c6778dbd",
+          "name": "Create Batch",
+          "request": {
+            "name": "Create Batch",
+            "description": {
+              "content": "Creates a batch of document renders from a single template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"key_0\": 9584.584254606894\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"string\",\n            \"key_1\": 7637.603991450807\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": true,\n            \"key_2\": 2849.0120620745442\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"key_0\": 8350.134974609102,\n        \"key_1\": 9567.45812706437\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"string\",\n            \"key_1\": 9544,\n            \"key_2\": \"string\",\n            \"key_3\": \"string\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 9187.084902281234,\n            \"key_1\": 8395\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7a2d056-9253-4ac0-9134-5dabd87c2916",
+              "name": "Batch created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": 1665,\n            \"key_2\": 7057,\n            \"key_3\": 107.50323423345031\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 4633,\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"key_0\": \"string\",\n        \"key_1\": 7516,\n        \"key_2\": false\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": 8249.50906638038\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 2996.6239344850396,\n            \"key_1\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"template_id\": \"string\",\n  \"renders\": [\n    {\n      \"id\": \"string\",\n      \"template_id\": \"string\",\n      \"merge_parameters\": {\n        \"key_0\": 8967.006591257266\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 9169.180224116777\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 2189.3675628911324,\n            \"key_1\": 200.84709672899103\n          }\n        }\n      ],\n      \"status\": \"string\",\n      \"created_at\": \"1950-02-19T02:42:08.560Z\",\n      \"updated_at\": \"1990-05-31T23:41:42.024Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"template_id\": \"string\",\n      \"merge_parameters\": {\n        \"key_0\": 7132\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": true\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 5764.390595791366\n          }\n        }\n      ],\n      \"status\": \"string\",\n      \"created_at\": \"1981-02-15T02:01:27.050Z\",\n      \"updated_at\": \"2014-03-09T23:13:55.553Z\"\n    }\n  ],\n  \"status\": \"string\",\n  \"created_at\": \"1967-04-26T05:49:42.092Z\",\n  \"updated_at\": \"1969-01-21T18:18:39.227Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cc32ae5-bb1c-4763-b530-db2b2288d886",
+              "name": "Bad request - invalid parameters or request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": 1665,\n            \"key_2\": 7057,\n            \"key_3\": 107.50323423345031\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 4633,\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"key_0\": \"string\",\n        \"key_1\": 7516,\n        \"key_2\": false\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": 8249.50906638038\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 2996.6239344850396,\n            \"key_1\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 1917\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94668500-2c76-45a2-9f2c-aea90f8d7d08",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": 1665,\n            \"key_2\": 7057,\n            \"key_3\": 107.50323423345031\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 4633,\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"key_0\": \"string\",\n        \"key_1\": 7516,\n        \"key_2\": false\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": 8249.50906638038\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 2996.6239344850396,\n            \"key_1\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 1917\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6723418-57ab-4312-9132-d7879c48ccc5",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_id\": \"<string>\",\n  \"renders\": [\n    {\n      \"merge_parameters\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": 1665,\n            \"key_2\": 7057,\n            \"key_3\": 107.50323423345031\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 4633,\n            \"key_1\": \"string\",\n            \"key_2\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"merge_parameters\": {\n        \"key_0\": \"string\",\n        \"key_1\": 7516,\n        \"key_2\": false\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": false,\n            \"key_1\": 8249.50906638038\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 2996.6239344850396,\n            \"key_1\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 1917\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ded7642-ffb4-4308-8cd4-251d2fdf532b",
+          "name": "List Batches",
+          "request": {
+            "name": "List Batches",
+            "description": {
+              "content": "Returns a list of batch render jobs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "destination_name",
+                  "value": "<string>",
+                  "description": "Filter by destination name"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "102e0b8a-276a-4eb5-8459-ae2c797d04d4",
+              "name": "A list of batches",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "destination_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"template_id\": \"string\",\n      \"renders\": [\n        {\n          \"id\": \"string\",\n          \"template_id\": \"string\",\n          \"merge_parameters\": {\n            \"key_0\": 5849\n          },\n          \"destinations\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"status\": \"string\",\n          \"created_at\": \"1958-10-20T08:36:02.209Z\",\n          \"updated_at\": \"1958-10-03T11:04:38.269Z\"\n        },\n        {\n          \"id\": \"string\",\n          \"template_id\": \"string\",\n          \"merge_parameters\": {\n            \"key_0\": false\n          },\n          \"destinations\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"status\": \"string\",\n          \"created_at\": \"1960-08-04T10:44:30.712Z\",\n          \"updated_at\": \"1980-12-10T01:42:35.373Z\"\n        }\n      ],\n      \"status\": \"string\",\n      \"created_at\": \"1959-06-17T17:06:46.270Z\",\n      \"updated_at\": \"1948-06-30T06:08:27.771Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"template_id\": \"string\",\n      \"renders\": [\n        {\n          \"id\": \"string\",\n          \"template_id\": \"string\",\n          \"merge_parameters\": {\n            \"key_0\": 4245.391817173219\n          },\n          \"destinations\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"status\": \"string\",\n          \"created_at\": \"2001-09-26T18:41:15.327Z\",\n          \"updated_at\": \"2003-11-17T17:01:40.922Z\"\n        },\n        {\n          \"id\": \"string\",\n          \"template_id\": \"string\",\n          \"merge_parameters\": {\n            \"key_0\": true\n          },\n          \"destinations\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"data\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"status\": \"string\",\n          \"created_at\": \"1984-04-27T16:14:12.406Z\",\n          \"updated_at\": \"1960-09-25T03:39:20.640Z\"\n        }\n      ],\n      \"status\": \"string\",\n      \"created_at\": \"1977-08-30T08:05:03.436Z\",\n      \"updated_at\": \"2019-10-05T11:32:44.268Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4a546f4-b30a-48fe-b605-678cead5bcfe",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "destination_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 1917\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e42a01e6-bcdb-4689-9fb8-40eca9b9748f",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "destination_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 1917\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7d6f98c-030f-4b3c-ace3-6db7d1a12f05",
+          "name": "Get Batch",
+          "request": {
+            "name": "Get Batch",
+            "description": {
+              "content": "Returns a single batch by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "batch",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30c3db22-b799-413b-b1be-b45c6d163d52",
+              "name": "Batch details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"template_id\": \"string\",\n  \"renders\": [\n    {\n      \"id\": \"string\",\n      \"template_id\": \"string\",\n      \"merge_parameters\": {\n        \"key_0\": 8.642851962845643,\n        \"key_1\": \"string\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"string\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"string\"\n          }\n        }\n      ],\n      \"status\": \"string\",\n      \"created_at\": \"2014-03-16T16:35:23.593Z\",\n      \"updated_at\": \"2025-10-31T08:00:57.939Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"template_id\": \"string\",\n      \"merge_parameters\": {\n        \"key_0\": \"string\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 8566\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": true\n          }\n        }\n      ],\n      \"status\": \"string\",\n      \"created_at\": \"1978-02-17T08:29:30.035Z\",\n      \"updated_at\": \"2017-01-29T22:19:14.707Z\"\n    }\n  ],\n  \"status\": \"string\",\n  \"created_at\": \"2004-07-29T10:29:35.722Z\",\n  \"updated_at\": \"2011-04-27T13:40:10.756Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "127abeeb-cbbc-4d77-b52e-d6af09c18939",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 1917\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0c4d2ed-1d70-43a9-8e5f-97bac354e87b",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 1917\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0015e5d6-b88e-4b28-820c-cc05ba2403dc",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "batch",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 1917\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.inkit.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Inkit-API-Token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "627a2978-e820-40eb-bbdb-53716b78cebb",
+    "name": "Inkit Document Generation Batches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.\n\n\nContact Support:\n Name: Inkit Support",
+      "type": "text/plain"
+    }
+  }
+}

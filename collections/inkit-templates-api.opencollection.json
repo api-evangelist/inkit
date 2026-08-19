@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Inkit Document Generation Batches Templates API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Inkit-API-Token",
+      "value": "{{X-Inkit-API-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.inkit.com/v1/template",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term to filter templates"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "Filter by template source type"
+              }
+            ]
+          },
+          "docs": "Returns a list of document templates."
+        },
+        {
+          "info": {
+            "name": "Create Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.inkit.com/v1/template",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new document template."
+        },
+        {
+          "info": {
+            "name": "Get Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.inkit.com/v1/template/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the resource"
+              }
+            ]
+          },
+          "docs": "Returns a single template by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

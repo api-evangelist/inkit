@@ -1,0 +1,793 @@
+{
+  "item": [
+    {
+      "id": "c9151070-5bca-4e85-b060-96dfc854fb24",
+      "name": "Templates",
+      "description": {
+        "content": "Manage document templates",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "905cee2d-9f04-4d5e-9797-2c3a44d48f12",
+          "name": "Create Template",
+          "request": {
+            "name": "Create Template",
+            "description": {
+              "content": "Creates a new document template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "template"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 6003\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 3651.5793226109604\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "461ededa-b83c-4688-9054-222292e73350",
+              "name": "Template created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 4406\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 5562.769313957631,\n        \"key_1\": 8003.5885502252,\n        \"key_2\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"source\": \"string\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 9649,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": true,\n        \"key_1\": true,\n        \"key_2\": \"string\"\n      }\n    }\n  ],\n  \"created_at\": \"2006-11-28T22:22:51.219Z\",\n  \"updated_at\": \"2018-06-28T10:38:47.787Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3c9061f-aecd-456c-aa6d-2477bf83d488",
+              "name": "Bad request - invalid parameters or request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 4406\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 5562.769313957631,\n        \"key_1\": 8003.5885502252,\n        \"key_2\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 8147\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "088cfe95-1081-49d7-a515-3f8aa6801eb4",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 4406\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 5562.769313957631,\n        \"key_1\": 8003.5885502252,\n        \"key_2\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 8147\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89cc7c1b-5669-4e78-ba52-1d4e979ba375",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"source\": \"<string>\",\n  \"file\": \"<string>\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 4406\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 5562.769313957631,\n        \"key_1\": 8003.5885502252,\n        \"key_2\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 8147\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00f8b64c-fd22-432b-9600-c281eabd5d6c",
+          "name": "List Templates",
+          "request": {
+            "name": "List Templates",
+            "description": {
+              "content": "Returns a list of document templates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "template"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search term to filter templates"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "Filter by template source type"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "669b7b72-5318-4d65-888e-150fb394bf70",
+              "name": "A list of templates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"source\": \"string\",\n      \"data\": {\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"unit\": \"<string>\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": true,\n            \"key_1\": \"string\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 625\n          }\n        }\n      ],\n      \"created_at\": \"1986-06-08T04:51:21.292Z\",\n      \"updated_at\": \"1982-10-13T06:30:02.197Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"source\": \"string\",\n      \"data\": {\n        \"width\": \"<number>\",\n        \"height\": \"<number>\",\n        \"unit\": \"<string>\"\n      },\n      \"destinations\": [\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": \"string\",\n            \"key_1\": false\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"status\": \"<string>\",\n          \"data\": {\n            \"key_0\": 3223.169650403468,\n            \"key_1\": \"string\"\n          }\n        }\n      ],\n      \"created_at\": \"1967-12-11T07:56:48.150Z\",\n      \"updated_at\": \"1998-04-15T17:06:51.852Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a3d498a-b2e5-47a7-b152-b9c8fa2e33ec",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 8147\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cad2d152-5cb3-4cf9-9ecc-a382e829a117",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 8147\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0021cc6-8d84-4a7f-a462-d6424e7354de",
+          "name": "Get Template",
+          "request": {
+            "name": "Get Template",
+            "description": {
+              "content": "Returns a single template by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "template",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the resource"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d53f58a-86a9-4bc1-9cd2-614f2440689e",
+              "name": "Template details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"source\": \"string\",\n  \"data\": {\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"destinations\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5140.226973265697\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"data\": {\n        \"key_0\": 8163,\n        \"key_1\": true\n      }\n    }\n  ],\n  \"created_at\": \"2005-10-20T05:08:42.822Z\",\n  \"updated_at\": \"1955-03-09T00:47:09.215Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5c716cb-60e2-4268-8ed7-5feb5be05ed3",
+              "name": "Unauthorized - invalid or missing API token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 8147\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b7c6f83-9f4e-4341-881b-3ff824020012",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 8147\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87d09a01-c688-4f7d-9012-c52360c280e7",
+              "name": "Rate limit exceeded - max 300 requests per minute",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "template",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the resource"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Inkit-API-Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"code\": 8147\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.inkit.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Inkit-API-Token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "31f52582-10e8-4065-8cdf-364ab805a30f",
+    "name": "Inkit Document Generation Batches Templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.\n\n\nContact Support:\n Name: Inkit Support",
+      "type": "text/plain"
+    }
+  }
+}
