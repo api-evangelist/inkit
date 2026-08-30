@@ -225,8 +225,6 @@ common:
     url: vocabulary/inkit-vocabulary.yml
   - type: JSONLDContext
     url: json-ld/inkit-context.jsonld
-  - type: Blog
-    url: blogs/blogs.json
   - type: LinkedIn
     url: https://www.linkedin.com/company/inkit
   - type: X
