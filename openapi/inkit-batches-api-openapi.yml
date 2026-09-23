@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Inkit Document Generation Batches API
-  description: 'The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.
-
-    '
+  description: The Inkit REST API enables developers to generate PDF documents from HTML templates, manage document storage and retrieval, launch document workflows and batches, and manage digital signature requests. Authentication uses the X-Inkit-API-Token header. The API enforces a rate limit of 300 requests per minute.
   version: 1.0.0
   contact:
     name: Inkit Support
@@ -101,6 +99,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Batch'
+    Render:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique render identifier
+        template_id:
+          type: string
+          description: ID of the source template
+        merge_parameters:
+          type: object
+          additionalProperties: true
+          description: Merge parameters used for this render
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+        status:
+          type: string
+          description: Current render status
+        created_at:
+          type: string
+          format: date-time
+          description: Render creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Render last update timestamp
     Batch:
       type: object
       properties:
@@ -139,34 +165,6 @@ components:
           description: List of render items with individual merge parameters and destinations
           items:
             $ref: '#/components/schemas/BatchRenderItem'
-    Render:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique render identifier
-        template_id:
-          type: string
-          description: ID of the source template
-        merge_parameters:
-          type: object
-          additionalProperties: true
-          description: Merge parameters used for this render
-        destinations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Destination'
-        status:
-          type: string
-          description: Current render status
-        created_at:
-          type: string
-          format: date-time
-          description: Render creation timestamp
-        updated_at:
-          type: string
-          format: date-time
-          description: Render last update timestamp
     BatchRenderItem:
       type: object
       properties:
@@ -178,6 +176,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Destination'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
     Destination:
       type: object
       description: Document delivery destination configuration
@@ -192,15 +199,6 @@ components:
           type: object
           description: Destination-specific configuration data
           additionalProperties: true
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
-        code:
-          type: integer
-          description: Error code
   parameters:
     ResourceId:
       name: id
@@ -210,14 +208,14 @@ components:
       schema:
         type: string
   responses:
-    Unauthorized:
-      description: Unauthorized - invalid or missing API token
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
       content:
         application/json:
           schema:
@@ -228,8 +226,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded - max 300 requests per minute
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
       content:
         application/json:
           schema:
