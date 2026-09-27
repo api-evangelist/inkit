@@ -43,7 +43,7 @@ tags:
   - Templates
   - Digital Signature
   - Workflows
-  - Document-Management
+  - Document Management
   - Secure Documents
   - Compliance
   - HIPAA
@@ -59,6 +59,7 @@ tags_raw:
   - Compliance
   - HIPAA
   - Enterprise
+  - Document-Management
 url: https://raw.githubusercontent.com/api-evangelist/inkit/refs/heads/main/apis.yml
 created: '2026-06-12'
 modified: '2026-06-12'

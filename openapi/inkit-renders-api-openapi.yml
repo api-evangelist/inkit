@@ -141,7 +141,79 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    Destination:
+      type: object
+      description: Document delivery destination configuration
+      properties:
+        name:
+          type: string
+          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
+        status:
+          type: string
+          description: Current delivery status
+        data:
+          type: object
+          description: Destination-specific configuration data
+          additionalProperties: true
+    RenderCreateRequest:
+      type: object
+      required:
+      - template_id
+      properties:
+        template_id:
+          type: string
+          description: ID of the template to render
+        merge_parameters:
+          type: object
+          description: Key-value pairs to merge into the template
+          additionalProperties: true
+        destinations:
+          type: array
+          description: List of delivery destinations for the rendered document
+          items:
+            $ref: '#/components/schemas/Destination'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
+    RenderListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Render'
     Render:
       type: object
       properties:
@@ -170,53 +242,6 @@ components:
           type: string
           format: date-time
           description: Render last update timestamp
-    RenderCreateRequest:
-      type: object
-      required:
-      - template_id
-      properties:
-        template_id:
-          type: string
-          description: ID of the template to render
-        merge_parameters:
-          type: object
-          description: Key-value pairs to merge into the template
-          additionalProperties: true
-        destinations:
-          type: array
-          description: List of delivery destinations for the rendered document
-          items:
-            $ref: '#/components/schemas/Destination'
-    RenderListResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Render'
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
-        code:
-          type: integer
-          description: Error code
-    Destination:
-      type: object
-      description: Document delivery destination configuration
-      properties:
-        name:
-          type: string
-          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
-        status:
-          type: string
-          description: Current delivery status
-        data:
-          type: object
-          description: Destination-specific configuration data
-          additionalProperties: true
   parameters:
     ResourceId:
       name: id
@@ -225,31 +250,6 @@ components:
       required: true
       schema:
         type: string
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded - max 300 requests per minute
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Bad request - invalid parameters or request body
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - invalid or missing API token
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

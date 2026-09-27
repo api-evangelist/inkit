@@ -107,13 +107,6 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    DocumentListResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Document'
     Document:
       type: object
       properties:
@@ -140,6 +133,13 @@ components:
           type: string
           format: date-time
           description: Document last update timestamp
+    DocumentListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
     Error:
       type: object
       properties:
@@ -149,17 +149,9 @@ components:
         code:
           type: integer
           description: Error code
-  parameters:
-    ResourceId:
-      name: id
-      in: path
-      description: Unique identifier of the resource
-      required: true
-      schema:
-        type: string
   responses:
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
       content:
         application/json:
           schema:
@@ -170,12 +162,20 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - invalid or missing API token
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Unique identifier of the resource
+      required: true
+      schema:
+        type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
