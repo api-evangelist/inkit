@@ -50,19 +50,6 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    RateLimited:
-      description: Rate limit exceeded - max 300 requests per minute
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - invalid or missing API token
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
     FolderListResponse:
       type: object
@@ -71,6 +58,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Folder'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
     Folder:
       type: object
       properties:
@@ -91,15 +87,19 @@ components:
           type: string
           format: date-time
           description: Folder last update timestamp
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
-        code:
-          type: integer
-          description: Error code
+  responses:
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

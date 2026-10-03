@@ -111,6 +111,28 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
+    TemplateData:
+      type: object
+      description: Template dimensions and format settings
+      properties:
+        width:
+          type: number
+          description: Page width
+        height:
+          type: number
+          description: Page height
+        unit:
+          type: string
+          description: Unit for dimensions (e.g. px, mm, in)
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
     TemplateCreateRequest:
       type: object
       required:
@@ -133,19 +155,20 @@ components:
           description: List of delivery destinations
           items:
             $ref: '#/components/schemas/Destination'
-    TemplateData:
+    Destination:
       type: object
-      description: Template dimensions and format settings
+      description: Document delivery destination configuration
       properties:
-        width:
-          type: number
-          description: Page width
-        height:
-          type: number
-          description: Page height
-        unit:
+        name:
           type: string
-          description: Unit for dimensions (e.g. px, mm, in)
+          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
+        status:
+          type: string
+          description: Current delivery status
+        data:
+          type: object
+          description: Destination-specific configuration data
+          additionalProperties: true
     Template:
       type: object
       properties:
@@ -179,29 +202,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Template'
-    Destination:
-      type: object
-      description: Document delivery destination configuration
-      properties:
-        name:
-          type: string
-          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
-        status:
-          type: string
-          description: Current delivery status
-        data:
-          type: object
-          description: Destination-specific configuration data
-          additionalProperties: true
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
-        code:
-          type: integer
-          description: Error code
   responses:
     BadRequest:
       description: Bad request - invalid parameters or request body

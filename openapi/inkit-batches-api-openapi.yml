@@ -91,111 +91,7 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    BadRequest:
-      description: Bad request - invalid parameters or request body
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded - max 300 requests per minute
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - invalid or missing API token
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    BatchRenderItem:
-      type: object
-      properties:
-        merge_parameters:
-          type: object
-          description: Merge parameters for this individual render in the batch
-          additionalProperties: true
-        destinations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Destination'
-    BatchCreateRequest:
-      type: object
-      required:
-      - template_id
-      - renders
-      properties:
-        template_id:
-          type: string
-          description: ID of the template to use for all renders in the batch
-        renders:
-          type: array
-          description: List of render items with individual merge parameters and destinations
-          items:
-            $ref: '#/components/schemas/BatchRenderItem'
-    Batch:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique batch identifier
-        template_id:
-          type: string
-          description: ID of the source template
-        renders:
-          type: array
-          items:
-            $ref: '#/components/schemas/Render'
-        status:
-          type: string
-          description: Overall batch status
-        created_at:
-          type: string
-          format: date-time
-          description: Batch creation timestamp
-        updated_at:
-          type: string
-          format: date-time
-          description: Batch last update timestamp
-    Destination:
-      type: object
-      description: Document delivery destination configuration
-      properties:
-        name:
-          type: string
-          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
-        status:
-          type: string
-          description: Current delivery status
-        data:
-          type: object
-          description: Destination-specific configuration data
-          additionalProperties: true
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
-        code:
-          type: integer
-          description: Error code
-    BatchListResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Batch'
     Render:
       type: object
       properties:
@@ -224,6 +120,110 @@ components:
           type: string
           format: date-time
           description: Render last update timestamp
+    BatchCreateRequest:
+      type: object
+      required:
+      - template_id
+      - renders
+      properties:
+        template_id:
+          type: string
+          description: ID of the template to use for all renders in the batch
+        renders:
+          type: array
+          description: List of render items with individual merge parameters and destinations
+          items:
+            $ref: '#/components/schemas/BatchRenderItem'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
+    Destination:
+      type: object
+      description: Document delivery destination configuration
+      properties:
+        name:
+          type: string
+          description: Destination name (e.g. s3, box, dropbox, google_drive, sepire)
+        status:
+          type: string
+          description: Current delivery status
+        data:
+          type: object
+          description: Destination-specific configuration data
+          additionalProperties: true
+    Batch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique batch identifier
+        template_id:
+          type: string
+          description: ID of the source template
+        renders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Render'
+        status:
+          type: string
+          description: Overall batch status
+        created_at:
+          type: string
+          format: date-time
+          description: Batch creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Batch last update timestamp
+    BatchRenderItem:
+      type: object
+      properties:
+        merge_parameters:
+          type: object
+          description: Merge parameters for this individual render in the batch
+          additionalProperties: true
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+    BatchListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Batch'
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     ResourceId:
       name: id

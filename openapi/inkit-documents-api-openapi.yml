@@ -150,14 +150,14 @@ components:
           type: integer
           description: Error code
   responses:
-    Unauthorized:
-      description: Unauthorized - invalid or missing API token
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded - max 300 requests per minute
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
       content:
         application/json:
           schema:
