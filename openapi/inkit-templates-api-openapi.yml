@@ -124,6 +124,13 @@ components:
         unit:
           type: string
           description: Unit for dimensions (e.g. px, mm, in)
+    TemplateListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Template'
     Error:
       type: object
       properties:
@@ -133,6 +140,32 @@ components:
         code:
           type: integer
           description: Error code
+    Template:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique template identifier
+        name:
+          type: string
+          description: Template name
+        source:
+          type: string
+          description: Template source type
+        data:
+          $ref: '#/components/schemas/TemplateData'
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+        created_at:
+          type: string
+          format: date-time
+          description: Template creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Template last update timestamp
     TemplateCreateRequest:
       type: object
       required:
@@ -169,42 +202,15 @@ components:
           type: object
           description: Destination-specific configuration data
           additionalProperties: true
-    Template:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique template identifier
-        name:
-          type: string
-          description: Template name
-        source:
-          type: string
-          description: Template source type
-        data:
-          $ref: '#/components/schemas/TemplateData'
-        destinations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Destination'
-        created_at:
-          type: string
-          format: date-time
-          description: Template creation timestamp
-        updated_at:
-          type: string
-          format: date-time
-          description: Template last update timestamp
-    TemplateListResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Template'
   responses:
-    BadRequest:
-      description: Bad request - invalid parameters or request body
+    Unauthorized:
+      description: Unauthorized - invalid or missing API token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
@@ -215,14 +221,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - invalid or missing API token
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
+    BadRequest:
+      description: Bad request - invalid parameters or request body
       content:
         application/json:
           schema:

@@ -142,6 +142,30 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
+    RenderCreateRequest:
+      type: object
+      required:
+      - template_id
+      properties:
+        template_id:
+          type: string
+          description: ID of the template to render
+        merge_parameters:
+          type: object
+          description: Key-value pairs to merge into the template
+          additionalProperties: true
+        destinations:
+          type: array
+          description: List of delivery destinations for the rendered document
+          items:
+            $ref: '#/components/schemas/Destination'
+    RenderListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Render'
     Render:
       type: object
       properties:
@@ -179,23 +203,6 @@ components:
         code:
           type: integer
           description: Error code
-    RenderCreateRequest:
-      type: object
-      required:
-      - template_id
-      properties:
-        template_id:
-          type: string
-          description: ID of the template to render
-        merge_parameters:
-          type: object
-          description: Key-value pairs to merge into the template
-          additionalProperties: true
-        destinations:
-          type: array
-          description: List of delivery destinations for the rendered document
-          items:
-            $ref: '#/components/schemas/Destination'
     Destination:
       type: object
       description: Document delivery destination configuration
@@ -210,22 +217,9 @@ components:
           type: object
           description: Destination-specific configuration data
           additionalProperties: true
-    RenderListResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Render'
   responses:
-    BadRequest:
-      description: Bad request - invalid parameters or request body
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded - max 300 requests per minute
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
@@ -236,8 +230,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad request - invalid parameters or request body
       content:
         application/json:
           schema:
