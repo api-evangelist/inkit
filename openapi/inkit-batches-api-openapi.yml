@@ -92,6 +92,60 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
+    Batch:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique batch identifier
+        template_id:
+          type: string
+          description: ID of the source template
+        renders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Render'
+        status:
+          type: string
+          description: Overall batch status
+        created_at:
+          type: string
+          format: date-time
+          description: Batch creation timestamp
+        updated_at:
+          type: string
+          format: date-time
+          description: Batch last update timestamp
+    BatchCreateRequest:
+      type: object
+      required:
+      - template_id
+      - renders
+      properties:
+        template_id:
+          type: string
+          description: ID of the template to use for all renders in the batch
+        renders:
+          type: array
+          description: List of render items with individual merge parameters and destinations
+          items:
+            $ref: '#/components/schemas/BatchRenderItem'
+    BatchListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Batch'
     Render:
       type: object
       properties:
@@ -120,29 +174,6 @@ components:
           type: string
           format: date-time
           description: Render last update timestamp
-    BatchCreateRequest:
-      type: object
-      required:
-      - template_id
-      - renders
-      properties:
-        template_id:
-          type: string
-          description: ID of the template to use for all renders in the batch
-        renders:
-          type: array
-          description: List of render items with individual merge parameters and destinations
-          items:
-            $ref: '#/components/schemas/BatchRenderItem'
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Error message
-        code:
-          type: integer
-          description: Error code
     BatchRenderItem:
       type: object
       properties:
@@ -168,44 +199,7 @@ components:
           type: object
           description: Destination-specific configuration data
           additionalProperties: true
-    BatchListResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Batch'
-    Batch:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique batch identifier
-        template_id:
-          type: string
-          description: ID of the source template
-        renders:
-          type: array
-          items:
-            $ref: '#/components/schemas/Render'
-        status:
-          type: string
-          description: Overall batch status
-        created_at:
-          type: string
-          format: date-time
-          description: Batch creation timestamp
-        updated_at:
-          type: string
-          format: date-time
-          description: Batch last update timestamp
   responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Unauthorized - invalid or missing API token
       content:
@@ -220,6 +214,12 @@ components:
             $ref: '#/components/schemas/Error'
     BadRequest:
       description: Bad request - invalid parameters or request body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:

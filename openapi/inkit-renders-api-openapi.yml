@@ -142,6 +142,15 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: integer
+          description: Error code
     RenderCreateRequest:
       type: object
       required:
@@ -159,13 +168,6 @@ components:
           description: List of delivery destinations for the rendered document
           items:
             $ref: '#/components/schemas/Destination'
-    RenderListResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Render'
     Render:
       type: object
       properties:
@@ -194,15 +196,13 @@ components:
           type: string
           format: date-time
           description: Render last update timestamp
-    Error:
+    RenderListResponse:
       type: object
       properties:
-        error:
-          type: string
-          description: Error message
-        code:
-          type: integer
-          description: Error code
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Render'
     Destination:
       type: object
       description: Document delivery destination configuration
@@ -218,8 +218,8 @@ components:
           description: Destination-specific configuration data
           additionalProperties: true
   responses:
-    NotFound:
-      description: Resource not found
+    RateLimited:
+      description: Rate limit exceeded - max 300 requests per minute
       content:
         application/json:
           schema:
@@ -230,14 +230,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded - max 300 requests per minute
+    BadRequest:
+      description: Bad request - invalid parameters or request body
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Bad request - invalid parameters or request body
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
