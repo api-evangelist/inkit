@@ -1,4 +1,4 @@
-# Inkit (inkit)
+# Inkit
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,61 +64,167 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Inkit is a Secure Document Generation (SDG) platform that enables organizations to generate, sign, store, and distribute documents in total privacy. The platform provides a REST API for rendering HTML templates into PDFs, automating document workflows, and managing digital signatures at scale. Inkit supports enterprise-grade security and compliance including HIPAA, SOC 2, FedRAMP, and IL4/IL5 certifications, making it suitable for regulated industries such as financial services, utilities, and government.
+Inkit is a Secure Document Generation (SDG) platform that enables organizations to generate, sign, store, and distribute documents in total privacy. The platform provides a REST API for rendering HTML templates into PDFs, automating document workflows, and managing digital signatures at scale. Inkit supports enterprise-grade security and compliance including HIPAA, SOC 2, FedRAMP, and IL4/IL5 certifications, making it suitable for regulated industries such as financial services, utilities, and government. The API allows developers to generate documents from templates, invoke workflow automation, manage mail piece delivery, and integrate document operations into their own applications using SDKs available for Python, Node.js, Go, and Java.
 
-APIs.json: [https://raw.githubusercontent.com/api-evangelist/inkit/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/inkit/refs/heads/main/apis.yml)
+**Areas:** Document Generation · PDF · Templates · Digital Signature · Workflows · Document Management · Secure Documents · Compliance · HIPAA · Enterprise
 
-Naftiko: [https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=inkit-api-evangelist&utm_content=repo](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=inkit-api-evangelist&utm_content=repo)
+## Inkit on APIs.io
 
-## Tags
+Everything profiled for Inkit is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/inkit/](https://apis.io/providers/inkit/)** — or go straight to one of the APIs or properties below.
 
-- Document Generation
-- PDF
-- Templates
-- Digital Signatures
-- Workflows
-- Document Management
-- Secure Documents
-- Compliance
-- HIPAA
-- Enterprise
+### APIs (5)
 
-## APIs
+- [Inkit Batches API](https://apis.io/apis/inkit/inkit-batches-api/) — Batch document render operations
+- [Inkit Documents API](https://apis.io/apis/inkit/inkit-documents-api/) — Manage stored documents
+- [Inkit Folders API](https://apis.io/apis/inkit/inkit-folders-api/) — Manage document folders
+- [Inkit Renders API](https://apis.io/apis/inkit/inkit-renders-api/) — Generate and retrieve document renders (PDFs)
+- [Inkit Templates API](https://apis.io/apis/inkit/inkit-templates-api/) — Manage document templates
 
-### Inkit Document Generation API
+### Published properties
 
-The Inkit REST API enables developers to generate PDF documents from templates, manage document storage and retrieval, launch document workflows and batches, send documents via mail, and manage digital signature requests. Authentication uses the `X-Inkit-API-Token` header and the API enforces a rate limit of 300 requests per minute.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Human URL:** [https://docs.inkit.com/docs/using-the-api](https://docs.inkit.com/docs/using-the-api)
-- **Base URL:** `https://api.inkit.com/v1`
-- **API Reference:** [https://docs.inkit.com/reference/post_v1-generate-1](https://docs.inkit.com/reference/post_v1-generate-1)
+#### Agentic access (1)
 
-## Plans / Rate Limits / FinOps
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Plans & Pricing:** [plans/inkit-plans-pricing.yml](plans/inkit-plans-pricing.yml)
-- **Rate Limits:** [rate-limits/inkit-rate-limits.yml](rate-limits/inkit-rate-limits.yml)
-- **FinOps:** [finops/inkit-finops.yml](finops/inkit-finops.yml)
+- [Inkit Agentic Access](https://apis.io/agentic-access/inkit/inkit-agentic-access/)
 
-Inkit offers four plan tiers: Free ($0), Personal ($15/user/month annual), Standard ($25/user/month annual), and Enterprise (custom pricing). API access is available exclusively on the Enterprise plan, with usage-based billing for API automations and workflow invocations. The API enforces a rate limit of 300 requests per minute per account.
+#### JSON Schema (3)
 
-## Timestamps
+The data models the API reads and writes.
 
-- **Created:** 2026-06-12
-- **Modified:** 2026-06-12
+- [Inkit Document](https://apis.io/schemas/inkit/inkit-document/)
+- [Inkit Render](https://apis.io/schemas/inkit/inkit-render/)
+- [Inkit Template](https://apis.io/schemas/inkit/inkit-template/)
 
-## Common Properties
+#### JSON-LD (1)
 
-| Type | URL |
-|------|-----|
-| Website | [https://www.inkit.com](https://www.inkit.com) |
-| Documentation | [https://docs.inkit.com/docs/welcome-to-inkit](https://docs.inkit.com/docs/welcome-to-inkit) |
-| GitHub Organization | [https://github.com/inkit](https://github.com/inkit) |
-| LinkedIn | [https://www.linkedin.com/company/inkit](https://www.linkedin.com/company/inkit) |
-| X | [https://x.com/inkittweet](https://x.com/inkittweet) |
-| Blog | [https://www.inkit.com/blog](https://www.inkit.com/blog) |
-| Pricing | [https://www.inkit.com/pricing](https://www.inkit.com/pricing) |
-| Status Page | [https://status.inkit.com/](https://status.inkit.com/) |
+Linked-data contexts for the provider's vocabulary.
 
-## Maintainers
+- [Inkit Context](https://apis.io/jsonld/inkit/inkit-context/)
 
-- **Kin Lane** - [kin@apievangelist.com](mailto:kin@apievangelist.com)
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Inkit Vocabulary](https://apis.io/vocabularies/inkit/inkit-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Inkit Create Batch Request](https://apis.io/examples/inkit/inkit-create-batch-request/)
+- [Inkit Create Render Request](https://apis.io/examples/inkit/inkit-create-render-request/)
+- [Inkit Create Render Response](https://apis.io/examples/inkit/inkit-create-render-response/)
+
+#### Collections (10)
+
+Postman and Open Collection request collections.
+
+- [Inkit Document Generation Batches API](https://apis.io/collections/inkit/open-inkit-batches-api/)
+- [Inkit Document Generation Batches Documents API](https://apis.io/collections/inkit/open-inkit-documents-api/)
+- [Inkit Document Generation Batches Folders API](https://apis.io/collections/inkit/open-inkit-folders-api/)
+- [Inkit Document Generation Batches Renders API](https://apis.io/collections/inkit/open-inkit-renders-api/)
+- [Inkit Document Generation Batches Templates API](https://apis.io/collections/inkit/open-inkit-templates-api/)
+- [Inkit Document Generation Batches API](https://apis.io/collections/inkit/postman-inkit-batches-api/)
+- [Inkit Document Generation Batches Documents API](https://apis.io/collections/inkit/postman-inkit-documents-api/)
+- [Inkit Document Generation Batches Folders API](https://apis.io/collections/inkit/postman-inkit-folders-api/)
+- [Inkit Document Generation Batches Renders API](https://apis.io/collections/inkit/postman-inkit-renders-api/)
+- [Inkit Document Generation Batches Templates API](https://apis.io/collections/inkit/postman-inkit-templates-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Inkit — jsonschema rules](https://apis.io/rules/inkit/inkit-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Inkit Authentication](https://apis.io/security/inkit/inkit-authentication/)
+- [Inkit Domain Security](https://apis.io/security/inkit/inkit-domain-security/)
+- [Inkit Trust Center](https://apis.io/security/inkit/inkit-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Inkit Plans Pricing](https://apis.io/plans/inkit/inkit-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Inkit Rate Limits](https://apis.io/rate-limits/inkit/inkit-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Inkit Finops](https://apis.io/finops/inkit/inkit-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.inkit.com)
+- [Documentation](https://docs.inkit.com/docs/welcome-to-inkit)
+- [Pricing](https://www.inkit.com/pricing)
+- [Blog](https://www.inkit.com/blog)
+- [GitHub](https://github.com/inkit)
+- [Status](https://status.inkit.com/)
+
+## API Evangelist rating
+
+**Kin Score 39.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 64.9 |
+| Contract governance | 23.5 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 26.3 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 21.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/inkit/](https://apis.io/providers/inkit/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Inkit: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/inkit/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
